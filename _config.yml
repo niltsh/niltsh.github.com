@@ -77,7 +77,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: zongyao.qu@gmail.com
+googleplus_user:
 googleplus_hidden: false
 
 # Pinboard
