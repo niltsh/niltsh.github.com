@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://niltsh.github.com/atom.xml" rel="self"/>
   <link href="http://niltsh.github.com/"/>
-  <updated>2013-01-28T23:04:42+09:00</updated>
+  <updated>2013-01-28T23:50:50+09:00</updated>
   <id>http://niltsh.github.com/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -12,5 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FIRST POST!]]></title>
+    <link href="http://niltsh.github.com/blog/2013/01/28/first-post/"/>
+    <updated>2013-01-28T23:44:00+09:00</updated>
+    <id>http://niltsh.github.com/blog/2013/01/28/first-post</id>
+    <content type="html"><![CDATA[<p>This is the very first post for me.</p>
+
+<p>这是我的博客的第一篇文章。</p>
+
+<p>これはこのブログにて僕の初めてのポストです。</p>
+]]></content>
+  </entry>
   
 </feed>
