@@ -7,7 +7,7 @@ sharing: true
 footer: true
 ---
 
-<div style="position:relative; width:100%; height:400px;">
+<div style="position:relative; width:90%; height:400px;">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <style type="text/css" media="screen">
         #selfintro li {
@@ -89,7 +89,7 @@ footer: true
                 yVar < 0 | yVar > 90 | 
                 zVar < 0 | zVar > 1500) {
                 //if it's off the screen randomly pick a starting place.
-                x[i]= Math.random() * 2 - 1;
+                x[i] = Math.random() * 2 - 1;
                 y[i] = Math.random() * 2 - 1;
                 inc[i] = 2;
             } else {
@@ -103,7 +103,7 @@ footer: true
                 $(items[i]).css("opacity",(zVar)/1500); // fade in from the distance.
             }
         }
-        setTimeout(animate, 50);
+        setTimeout(animate, 20);
     }
 animate();
 </script>
