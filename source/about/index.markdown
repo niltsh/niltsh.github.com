@@ -8,8 +8,7 @@ footer: true
 ---
 
 <div style="position:relative; width:90%; height:400px;">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <style type="text/css" media="screen">
+	<style type="text/css" media="screen">
         #selfintro li {
             list-style: none;
             color: #555;
@@ -107,5 +106,4 @@ footer: true
     }
     animate();
 </script>
-
 </div>
