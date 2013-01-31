@@ -2,18 +2,18 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://niltsh.github.com/about/</loc>
-        <lastmod>2013-01-30T22:56:21+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://niltsh.github.com/blog/archives/</loc>
-        <lastmod>2013-01-28T22:12:52+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://niltsh.github.com/</loc>
-        <lastmod>2013-01-28T22:12:52+09:00</lastmod>
+        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
     </url>
     <url>
         <loc>http://niltsh.github.com/robots.txt</loc>
-        <lastmod>2013-01-28T22:12:52+09:00</lastmod>
+        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://niltsh.github.com/blog/archives/</loc>
+        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://niltsh.github.com/</loc>
+        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
     </url>
 </urlset>
