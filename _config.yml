@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://niltsh.github.com
+url: http://blog.mplayerx.org
 title: No More Than Nothing
 subtitle:
 author: Zongyao Qu
@@ -89,7 +89,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: niltshgithubcom
+disqus_short_name: blogmpx
 disqus_show_comment_count: true
 
 # Google Analytics
