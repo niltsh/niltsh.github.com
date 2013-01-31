@@ -1,19 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://niltsh.github.com/about/</loc>
-        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+        <loc>http://blog.mplayerx.org/blog/2013/01/31/about-donation-to-mplayerx/</loc>
+        <lastmod>2013-01-31T22:13:25+09:00</lastmod>
     </url>
     <url>
-        <loc>http://niltsh.github.com/robots.txt</loc>
-        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+        <loc>http://blog.mplayerx.org/about/</loc>
+        <lastmod>2013-01-31T19:45:44+09:00</lastmod>
     </url>
     <url>
-        <loc>http://niltsh.github.com/blog/archives/</loc>
-        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+        <loc>http://blog.mplayerx.org/blog/archives/</loc>
+        <lastmod>2013-01-31T22:13:25+09:00</lastmod>
     </url>
     <url>
-        <loc>http://niltsh.github.com/</loc>
-        <lastmod>2013-01-31T14:14:50+09:00</lastmod>
+        <loc>http://blog.mplayerx.org/</loc>
+        <lastmod>2013-01-31T22:13:25+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.mplayerx.org/robots.txt</loc>
+        <lastmod>2013-01-31T19:45:44+09:00</lastmod>
     </url>
 </urlset>
