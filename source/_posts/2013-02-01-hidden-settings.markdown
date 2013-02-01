@@ -14,6 +14,8 @@ Well, this is my choice of design.
 
 For who does want some feature which is not available in GUI, you may find it here.
 
+<!-- more -->
+
 * #### Usage:
 
 {% codeblock lang:bash In Terminal.app, type the following %}

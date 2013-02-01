@@ -18,6 +18,8 @@ Although I did successfully received the donation for almost 1 year, this year i
 
 I have made a alternative solution, a **BUY button**, which you could see in the [homepage](http://mplayerx.org) now. But I'm not sure it is working, since I didn't test it.
 
+<!-- more -->
+
 If it is still not working you could [drop me a message](mailto: zongyao.qu@gmail.com), or just ignore it. I already appreciate your willingness.
 
 How ironic it is, the fist post of the **FREE** software blog is about **MONEY**.

@@ -16,6 +16,8 @@ Usage:
 open -a /path/to/MPlayerX.app --args -name1 value1 -name2 value2 ...
 {% endcodeblock %}
 
+<!-- more -->
+
 Besides the names in the table below, the strings declared in [this file](https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/UserDefaults.m) could also be used as name.
 
 <div>
