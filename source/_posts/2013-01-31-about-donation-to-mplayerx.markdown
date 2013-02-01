@@ -8,7 +8,7 @@ categories: MPlayerX donation
 
 Recently, many users emailed me about their failure of donation to MPlayerX.
 
-I have conneted to the customer support and their answer is
+I have conneted to the customer support of Paypal and their answer is
 
 > In accordance with applicable laws and regulations, Japanese account user can't use their account to send donation to any accounts, if you want to use your Japanese account to receive the donation, your account and your group certification will be checked.
 
@@ -16,7 +16,7 @@ I have conneted to the customer support and their answer is
 
 Although I did successfully received the donation for almost 1 year, this year it got banned.
 
-I have made a alternative solution, I made a **BUY button**, which you could see in the [homepage](http://mplayerx.org) now. But I'm not sure it is working, since I didn't test it.
+I have made a alternative solution, a **BUY button**, which you could see in the [homepage](http://mplayerx.org) now. But I'm not sure it is working, since I didn't test it.
 
 If it is still not working you could [drop me a message](mailto: zongyao.qu@gmail.com), or just ignore it. I already appreciate your willingness.
 
