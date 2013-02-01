@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MPlayerX | No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/blog/categories/mplayerx/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2013-02-01T07:57:13+09:00</updated>
+  <updated>2013-02-01T14:51:14+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -12,6 +12,374 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hidden Settings of MPlayerX]]></title>
+    <link href="http://blog.mplayerx.org/blog/2013/02/01/hidden-settings/"/>
+    <updated>2013-02-01T13:33:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2013/02/01/hidden-settings</id>
+    <content type="html"><![CDATA[<p>Some users want more settings, some users want more simplicity.</p>
+
+<p>I think exposing all the settings in the software and stacking them to the GUI is a bad choice. Not only complicating the GUI is bad, making users make the unimportant choice is even worse.</p>
+
+<p>Well, this is my choice of design.</p>
+
+<p>For who does want some feature which is not available in GUI, you may find it here.</p>
+
+<!-- more -->
+
+
+<ul>
+<li><h4>Usage:</h4></li>
+</ul>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>In Terminal.app, type the following </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/Library/Preferences
+</span><span class='line'>defaults write org.niltsh.MPlayerX Name -type Value
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<ul>
+<li><h4>Name, type, Value</h4></li>
+</ul>
+
+
+<div>
+<style type="text/css" media="screen">
+* + table {
+  border-style:solid;
+  border-width:1px;
+  border-color:#b7b3b7;
+  margin: 16px;
+  font-size: 75%;
+}
+* + table th, * + table td {
+  border-color:#b7b3b7;
+  border-width:1px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+* + table th {
+  border-style:solid;
+  font-weight:bold;
+  background: url("/images/noise.png?1330434582") repeat scroll left top #F7F3F7;
+  text-align:center;
+}
+* + table td {
+    border-style:dashed;
+}
+</style>
+
+<table>
+<tr>
+<th>Name</th>
+    <th>type</th>
+    <th>default value</th>
+    <th>comment</th>
+    <th>available from</th>
+</tr>
+<tr>
+<td> SpeedStepIncre </td>
+        <td> float </td>
+        <td> 0.1 </td>
+        <td> when changing the speed in the accessary control(the TextField), the increment value when press ↑↓ </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SubDelayStepTime </td>
+        <td> float </td>
+        <td> 0.1 </td>
+        <td> similar with SpeedStepTime, the time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> AudioDelayStepTime </td>
+        <td> float </td>
+        <td> 0.1 </td>
+        <td> similar with SpeedStepTime, the time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SubScaleStepValue </td>
+        <td> float </td>
+        <td> 0.1 </td>
+        <td> similar with SpeedStepTime, it is rational to set this value within 0-1 </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SeekStepTimeL </td>
+        <td> float </td>
+        <td> -10 </td>
+        <td> when use ← to backward, the jump time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SeekStepTimeR </td>
+        <td> float </td>
+        <td> 10 </td>
+        <td> when use → to forward, the jump time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SeekStepTimeU </td>
+        <td> float </td>
+        <td> 60 </td>
+        <td> when use ↑ to forward, the jump time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SeekStepTimeB </td>
+        <td> float </td>
+        <td> -60 </td>
+        <td> when use ↓ to backward, the jump time in seconds </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> VolumeStep </td>
+        <td> float </td>
+        <td> 10 </td>
+        <td> when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100) </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SnapshotSavePath </td>
+        <td> string </td>
+        <td> <em>(internal value)</em> </td>
+        <td> if you don’t want to save the snapshot pics into your ~/Pictures, the <strong>Full Path</strong> of the folder where you want to save it </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> HideTitlebar </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> always hide titlebar even the mouse is hovering on the window </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> LogMode </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> output logs to console </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> Prefer64bitMPlayer </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> CloseOnStopped </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> When playback finished, whether to close the player window </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SubBorderWidth </td>
+        <td> integer </td>
+        <td> 2 </td>
+        <td> border width of the subtitle </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> CloseWndOnEsc </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> close window when pressing escape </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> PlayWhenEnterFullScrn </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> auto resume when entering full screen if paused </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> SupportAppleRemote </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> Support Apple Remote (Remote Buddy users may want to disable this) </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> AssSubMarginV </td>
+        <td> integer </td>
+        <td> 12 </td>
+        <td> the position of Subtitle from bottom, in pixels </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> ResizeControlBar </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> let the control bar autoresizing with window, or keep it unchanged </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> InitialFrameSizeRatio </td>
+        <td> float </td>
+        <td> 1.0 </td>
+        <td> the initial frame size ratio when opening a video </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> DisableLastStopBookmark </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> disable the last stopped time completely </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> ResizeStep </td>
+        <td> float </td>
+        <td> 0.1 </td>
+        <td> the ratio when stepping up/down window size </td>
+        <td> unknown </td>
+    </tr>
+<tr>
+<td> OldFullScreenMethod </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> the old style of full screen animation(only for Lion) </td>
+        <td> 1.0.9 </td>
+    </tr>
+<tr>
+<td> ClickTogPlayPause </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> single click to toggle play/pause </td>
+        <td> 1.0.11 </td>
+    </tr>
+<tr>
+<td> ARMenuKeyTogTimeDisp </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> AppleRemote menu key to toggle the elapse/remaining time </td>
+        <td> 1.0.11 </td>
+    </tr>
+<tr>
+<td> FFPThreshRatio </td>
+        <td> float </td>
+        <td> 1.8 </td>
+        <td> the threshold to judge pinch is happening with 4 fingers </td>
+        <td> 1.0.11 </td>
+    </tr>
+<tr>
+<td> PauseShowTime </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> Show current time when paused </td>
+        <td> 1.0.14 </td>
+    </tr>
+<tr>
+<td> ControlUIDetectMouseExit </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> Hide control bar immediately when it exit from player window </td>
+        <td> 1.0.14 </td>
+    </tr>
+<tr>
+<td> EnableHWAccel2 </td>
+        <td> boolean </td>
+        <td> YES </td>
+        <td> Enable Hardware Accelerated Decoding </td>
+        <td> 1.0.17 </td>
+    </tr>
+</table>
+</div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Call MPlayerX thru script]]></title>
+    <link href="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/"/>
+    <updated>2013-02-01T09:35:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line</id>
+    <content type="html"><![CDATA[<p>MPlayerX supports <strong>Shell</strong> script command line and <strong>AppleScript</strong> as its integration to the OS.</p>
+
+<ul>
+<li><h3>For Shell script</h3></li>
+</ul>
+
+
+<p>Usage:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /path/to/MPlayerX.app --args -name1 value1 -name2 value2 ...
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!-- more -->
+
+
+<p>Besides the names in the table below, the strings declared in <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/UserDefaults.m">this file</a> could also be used as name.</p>
+
+<div>
+<style type="text/css" media="screen">
+* + table {
+  border-style:solid;
+  border-width:1px;
+  border-color:#b7b3b7;
+  margin: 16px;
+}
+* + table th, * + table td {
+  border-color:#b7b3b7;
+  border-width:1px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+* + table th {
+  border-style:solid;
+  font-weight:bold;
+  background: url("/images/noise.png?1330434582") repeat scroll left top #F7F3F7;
+  text-align:center;
+}
+
+* + table td {
+    border-style:dashed;
+}
+</style>
+<table>
+    <tr>
+        <th>name</th>
+        <th>value</th>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>the url of the media<br></td>
+    </tr>
+    <tr>
+        <td>file</td>
+        <td>the path of the media file<br></td>
+    </tr>
+</table>
+</div>
+
+
+<h5>A real world example</h5>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /Applications/MPlayerX.app --args -file /Movies/myfavorite.mp4 -volume 50 -StartByFullScreen YES
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<ul>
+<li><h3>For AppleScript</h3></li>
+</ul>
+
+
+<p>MPlayerX just started to support AppleScript in 1.0.17, its implementation still stays in primary status.</p>
+
+<p>Usually you could use <em>AppleScript Editor</em> to look up all the functions provided by MPlayerX, for geeks, the source code is <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/MPlayerXScript.sdef">here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[About donation to MPlayerX]]></title>
@@ -29,6 +397,9 @@
 <p>Although I did successfully received the donation for almost 1 year, this year it got banned.</p>
 
 <p>I have made a alternative solution, a <strong>BUY button</strong>, which you could see in the <a href="http://mplayerx.org">homepage</a> now. But I'm not sure it is working, since I didn't test it.</p>
+
+<!-- more -->
+
 
 <p>If it is still not working you could <a href="mailto:%20zongyao.qu@gmail.com">drop me a message</a>, or just ignore it. I already appreciate your willingness.</p>
 

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - No More Than Nothing</title>
+  <title>Call MPlayerX thru script - No More Than Nothing</title>
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="Blog Archive 2013 Hidden Settings of MPlayerX
-Feb 01 2013 posted in MPlayerX Call MPlayerX thru script
-Feb 01 2013 posted in MPlayerX, script About &hellip;">
+  <meta name="description" content="MPlayerX supports Shell script command line and AppleScript as its integration to the OS. For Shell script Usage: In Terminal.app, the command looks &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Feb 01 2013 posted in MPlayerX, script About &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.mplayerx.org/blog/archives/">
+  <link rel="canonical" href="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,64 +62,188 @@ Feb 01 2013 posted in MPlayerX, script About &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Call MPlayerX Thru Script</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-01T09:35:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
+
+
+<div class="entry-content"><p>MPlayerX supports <strong>Shell</strong> script command line and <strong>AppleScript</strong> as its integration to the OS.</p>
+
+<ul>
+<li><h3>For Shell script</h3></li>
+</ul>
+
+
+<p>Usage:</p>
+
+<figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /path/to/MPlayerX.app --args -name1 value1 -name2 value2 ...
+</span></code></pre></td></tr></table></div></figure>
 
 
 
-  
-  <h2>2013</h2>
 
-<article>
-  
-<h1><a href="/blog/2013/02/01/hidden-settings/">Hidden Settings of MPlayerX</a></h1>
-<time datetime="2013-02-01T13:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<p>Besides the names in the table below, the strings declared in <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/UserDefaults.m">this file</a> could also be used as name.</p>
 
+<div>
+<style type="text/css" media="screen">
+* + table {
+  border-style:solid;
+  border-width:1px;
+  border-color:#b7b3b7;
+  margin: 16px;
+}
+* + table th, * + table td {
+  border-color:#b7b3b7;
+  border-width:1px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+* + table th {
+  border-style:solid;
+  font-weight:bold;
+  background: url(&#8220;/images/noise.png?1330434582&#8221;) repeat scroll left top #F7F3F7;
+  text-align:center;
+}
 
-
-<article>
-  
-<h1><a href="/blog/2013/02/01/call-mplayerx-thru-command-line/">Call MPlayerX thru script</a></h1>
-<time datetime="2013-02-01T09:35:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/script/'>script</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/31/about-donation-to-mplayerx/">About donation to MPlayerX</a></h1>
-<time datetime="2013-01-31T19:49:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>31</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/donation/'>donation</a></span>
-</footer>
-
-
-</article>
-
+* + table td {
+    border-style:dashed;
+}
+</style>
+<table>
+    <tr>
+        <th>name</th>
+        <th>value</th>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>the url of the media<br></td>
+    </tr>
+    <tr>
+        <td>file</td>
+        <td>the path of the media file<br></td>
+    </tr>
+</table>
 </div>
 
+
+<h5>A real world example</h5>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /Applications/MPlayerX.app --args -file /Movies/myfavorite.mp4 -volume 50 -StartByFullScreen YES
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><h3>For AppleScript</h3></li>
+</ul>
+
+
+<p>MPlayerX just started to support AppleScript in 1.0.17, its implementation still stays in primary status.</p>
+
+<p>Usually you could use <em>AppleScript Editor</em> to look up all the functions provided by MPlayerX, for geeks, the source code is <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/MPlayerXScript.sdef">here</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Zongyao Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-01T09:35:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/script/'>script</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="false" data-width="300" data-show-faces="false"></div>
+  
+  <div style="margin-top:1em;"><script type="text/javascript"><!--
+    google_ad_client = "ca-pub-4557726861276515";
+    /* niltsh.github.com-small */
+    google_ad_slot = "3793320506";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+  </script>
+  <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script></div>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/31/about-donation-to-mplayerx/" title="Previous Post: About donation to MPlayerX">&laquo; About donation to MPlayerX</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/02/01/hidden-settings/" title="Next Post: Hidden Settings of MPlayerX">Hidden Settings of MPlayerX &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -214,7 +336,10 @@ Feb 01 2013 posted in MPlayerX, script About &hellip;">
       var disqus_shortname = 'blogmpx';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/';
+        var disqus_url = 'http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

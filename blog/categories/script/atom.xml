@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: script | No More Than Nothing]]></title>
+  <link href="http://blog.mplayerx.org/blog/categories/script/atom.xml" rel="self"/>
+  <link href="http://blog.mplayerx.org/"/>
+  <updated>2013-02-01T14:51:14+09:00</updated>
+  <id>http://blog.mplayerx.org/</id>
+  <author>
+    <name><![CDATA[Zongyao Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Call MPlayerX thru script]]></title>
+    <link href="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/"/>
+    <updated>2013-02-01T09:35:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line</id>
+    <content type="html"><![CDATA[<p>MPlayerX supports <strong>Shell</strong> script command line and <strong>AppleScript</strong> as its integration to the OS.</p>
+
+<ul>
+<li><h3>For Shell script</h3></li>
+</ul>
+
+
+<p>Usage:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /path/to/MPlayerX.app --args -name1 value1 -name2 value2 ...
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!-- more -->
+
+
+<p>Besides the names in the table below, the strings declared in <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/UserDefaults.m">this file</a> could also be used as name.</p>
+
+<div>
+<style type="text/css" media="screen">
+* + table {
+  border-style:solid;
+  border-width:1px;
+  border-color:#b7b3b7;
+  margin: 16px;
+}
+* + table th, * + table td {
+  border-color:#b7b3b7;
+  border-width:1px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+* + table th {
+  border-style:solid;
+  font-weight:bold;
+  background: url("/images/noise.png?1330434582") repeat scroll left top #F7F3F7;
+  text-align:center;
+}
+
+* + table td {
+    border-style:dashed;
+}
+</style>
+<table>
+    <tr>
+        <th>name</th>
+        <th>value</th>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>the url of the media<br></td>
+    </tr>
+    <tr>
+        <td>file</td>
+        <td>the path of the media file<br></td>
+    </tr>
+</table>
+</div>
+
+
+<h5>A real world example</h5>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /Applications/MPlayerX.app --args -file /Movies/myfavorite.mp4 -volume 50 -StartByFullScreen YES
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<ul>
+<li><h3>For AppleScript</h3></li>
+</ul>
+
+
+<p>MPlayerX just started to support AppleScript in 1.0.17, its implementation still stays in primary status.</p>
+
+<p>Usually you could use <em>AppleScript Editor</em> to look up all the functions provided by MPlayerX, for geeks, the source code is <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/MPlayerXScript.sdef">here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
