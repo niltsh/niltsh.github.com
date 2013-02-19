@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - No More Than Nothing</title>
+  <title>Delete duplicated items in Open With... - No More Than Nothing</title>
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="Blog Archive 2013 Delete duplicated items in Open With&#8230;
-Feb 18 2013 posted in MPlayerX, Mac Hidden Settings of MPlayerX
-Feb 01 2013 posted in &hellip;">
+  <meta name="description" content="Some users said they have duplicated menu items in their &#8220;Open With &#8230;&#8221; of the contextual menu, looks like First, please check &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Feb 01 2013 posted in &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.mplayerx.org/blog/archives/">
+  <link rel="canonical" href="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -76,78 +74,125 @@ Feb 01 2013 posted in &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Delete Duplicated Items in Open With...</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T19:18:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>Some users said they have duplicated menu items in their &#8220;Open With &#8230;&#8221; of the contextual menu, looks like</p>
 
-  
-  <h2>2013</h2>
+<p><img src="/images/duplicated_items_contextual_menu.png" width="400" height="300" title="Snapshot" ></p>
 
-<article>
-  
-<h1><a href="/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/">Delete duplicated items in Open With&#8230;</a></h1>
-<time datetime="2013-02-18T19:18:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/mac/'>Mac</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<p><strong>First</strong>, please check whether you have downloaded multiple copies of the same application, <a href="http://support.apple.com/kb/ht2531">Spotlight</a> is your good assistant.</p>
+
+<p>If there is only one copy, the following command would fix it.</p>
+
+<figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain <span class="nb">local</span> -domain system -domain user
+</span></code></pre></td></tr></table></div></figure>
 
 
-
-<article>
-  
-<h1><a href="/blog/2013/02/01/hidden-settings/">Hidden Settings of MPlayerX</a></h1>
-<time datetime="2013-02-01T13:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/02/01/call-mplayerx-thru-command-line/">Call MPlayerX thru script</a></h1>
-<time datetime="2013-02-01T09:35:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/script/'>script</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/31/about-donation-to-mplayerx/">About donation to MPlayerX</a></h1>
-<time datetime="2013-01-31T19:49:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>31</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/donation/'>donation</a></span>
-</footer>
-
-
-</article>
-
+<p>With this command, the database of <strong>LaunchService</strong> will be rebuilt, and duplicated entries in &#8220;Open With&#8230;&#8221; should disappear.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Zongyao Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T19:18:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/mac/'>Mac</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="false" data-width="300" data-show-faces="false"></div>
+  
+  <div style="margin-top:1em;"><script type="text/javascript"><!--
+    google_ad_client = "ca-pub-4557726861276515";
+    /* niltsh.github.com-small */
+    google_ad_slot = "3793320506";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+  </script>
+  <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script></div>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/01/hidden-settings/" title="Previous Post: Hidden Settings of MPlayerX">&laquo; Hidden Settings of MPlayerX</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -244,7 +289,10 @@ Feb 01 2013 posted in &hellip;">
       var disqus_shortname = 'blogmpx';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/';
+        var disqus_url = 'http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
