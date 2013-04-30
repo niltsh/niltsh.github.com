@@ -318,24 +318,39 @@
 
 <p> <strong>大功告成！</strong></p>
 
-<p> 将上面的一系列修改写成脚本：</p>
-
-<pre><code> #!/bin/sh
-
- if [[ $# -lt 1 ]]; then
-     echo "Usage: modify.sh FILE"
-     exit 1
- fi
-
- otool $1 | grep local | cut -d'(' -f1 | sed -e 's/^[ \t]*//' | while read line
- do
-     newline=`echo ${line} | sed -e 's|/usr/local|@executable_path|'`
-     install_name_tool -change ${line} ${newline} $1
- done;
-</code></pre></li>
+<p> 将上面的一系列修改写成脚本：</p></li>
 </ol>
 </li>
 </ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[[</span> <span class="nv">$# </span>-lt 1 <span class="o">]]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;Usage: modify.sh FILE&quot;</span>
+</span><span class='line'>    <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>otool -L <span class="nv">$1</span> | grep <span class="nb">local</span> | cut -d<span class="s1">&#39;(&#39;</span> -f1 | sed -e <span class="s1">&#39;s/^[ \t]*//&#39;</span> | <span class="k">while </span><span class="nb">read </span>line
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    </span><span class="nv">newline</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">${</span><span class="nv">line</span><span class="k">}</span> | sed -e <span class="s1">&#39;s|/usr/local|@executable_path|&#39;</span><span class="sb">`</span>
+</span><span class='line'>    install_name_tool -change <span class="k">${</span><span class="nv">line</span><span class="k">}</span> <span class="k">${</span><span class="nv">newline</span><span class="k">}</span> <span class="nv">$1</span>
+</span><span class='line'><span class="k">done</span>;
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
 
