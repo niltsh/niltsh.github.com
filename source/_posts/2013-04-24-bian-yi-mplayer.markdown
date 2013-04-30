@@ -145,15 +145,17 @@ _多点代码，少点废话。_
         **大功告成！**
 
         将上面的一系列修改写成脚本：
-            #!/bin/sh
+{% codeblock lang:bash %}
+#!/bin/sh
 
-            if [[ $# -lt 1 ]]; then
-                echo "Usage: modify.sh FILE"
-                exit 1
-            fi
+if [[ $# -lt 1 ]]; then
+    echo "Usage: modify.sh FILE"
+    exit 1
+fi
 
-            otool $1 | grep local | cut -d'(' -f1 | sed -e 's/^[ \t]*//' | while read line
-            do
-                newline=`echo ${line} | sed -e 's|/usr/local|@executable_path|'`
-                install_name_tool -change ${line} ${newline} $1
-            done;
+otool -L $1 | grep local | cut -d'(' -f1 | sed -e 's/^[ \t]*//' | while read line
+do
+    newline=`echo ${line} | sed -e 's|/usr/local|@executable_path|'`
+    install_name_tool -change ${line} ${newline} $1
+done;
+{% endcodeblock %}
