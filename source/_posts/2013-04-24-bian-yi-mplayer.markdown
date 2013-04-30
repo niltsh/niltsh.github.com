@@ -3,7 +3,7 @@ layout: post
 title: "mplayer的编译方法"
 date: 2013-04-24 12:47
 comments: true
-categories: MPlayerX mplayer 编译 compile
+categories: MPlayerX mplayer 编译 compile otool install_name_tool
 ---
 
 网上类似的文章数不胜数，并且有想法自己搞这些开源玩意儿的同学想必水平也应该都在我之上，我本不该多此一举。不过记得当初为了编译出一个能够完全胜任MPlayerX的核心，我还是费了相当一些周折，这些周折如果在网上仔细调查也能得到答案，不过将它们总结到一起的文章，我还没有发现。所以我就做一个搬运工，把它们放到一起供有兴趣的同学翻阅。
@@ -70,9 +70,9 @@ _多点代码，少点废话。_
                 make
                 sudo make install
 
-    **注**
-
-    编译流程比较简单，解压 → configure → make → sudo make install，需要注意的是 ./configure的选项。
+    6. 其他以及注意事项
+      * 编译流程比较简单，解压 → configure → make → sudo make install，需要注意的是 ./configure的选项。
+      * 除了以上的以外，还有一些可选装的第三方库，如 [FLAC](http://sourceforge.net/projects/flac/files/flac-src/), [ogg](http://xiph.org/downloads/), [vorbis](http://xiph.org/downloads/), [speex](http://xiph.org/downloads/) 等等，编译方法都比较类似，这里就不一一列举了。
 
 * ###编译mplayer
 
@@ -96,29 +96,64 @@ _多点代码，少点废话。_
             make -j8
 
         现在你已经可以使用刚刚生成的mplayer了，祝贺你。试试看
-                ./mplayer test.mp4
+            ./mplayer test.mp4
 
     3. **重定向动态链接库文件路径**
 
-    如果你只是自己用，那么以上的步骤就足够了，你可以离开这个网页。
+        如果你只是自己用，那么以上的步骤就足够了，你可以离开这个网页。
 
-    如果你将你做好的mplayer发给你的朋友，它们可能会得到下面的错误。
-        QZYMBP17:binaries NILTSH$ ./mplayer 
-        dyld: Library not loaded: /usr/local/lib/libfreetype.6.dylib
-          Referenced from: /Volumes/Work/MPX/src/MPlayerX/MPlayerX/binaries/./mplayer
-          Reason: image not found
-        Trace/BPT trap: 5
+        如果你将你做好的mplayer发给你的朋友，你会得到下面的错误。
+            QZYMBP17:binaries NILTSH$ ./mplayer 
+            dyld: Library not loaded: /usr/local/lib/libfreetype.6.dylib
+              Referenced from: /Volumes/Work/MPX/src/MPlayerX/MPlayerX/binaries/./mplayer
+              Reason: image not found
+            Trace/BPT trap: 5
+        mplayer使用了动态链接库来使用它需要的第三方代码。因此如果我们试图在**没有编译安装这些第三方库的Mac中**运行mplayer的话，将会得到以上的错误。
 
-    mplayer使用了动态链接库技术来链接到它需要使用的依赖库。因此如果我们试图在并没有编译安装依赖库的Mac中运行mplayer的话，将会得到以上的错误。
+        * **那如何查看 某一个二进制文件会链接到哪些动态链接库呢？**
+                otool -L mplayer
+            这个命令会输出mplayer所连接到的所有的库，包括系统默认的，所以一般我们可以用下面的命令。
+                otool -L mplayer | grep local
 
-     * **那如何查看 某一个二进制文件会链接到哪些动态链接库**呢？
-            otool -L mplayer
-        这个命令会输出mplayer所连接到的所有的库，包括系统默认的，所以一般我们可以用下面的命令。
-            otool -L mplayer | grep local
+            我们会得到如下的输出：
+                /usr/local/lib/libfreetype.6.dylib (compatibility version 15.0.0, current version 15.0.0)
+                /usr/local/lib/libfontconfig.1.dylib (compatibility version 6.0.0, current version 6.4.0)
+                /usr/local/lib/libspeex.1.dylib (compatibility version 7.0.0, current version 7.0.0)
 
-        我们会得到如下的输出：
-            /usr/local/lib/libfreetype.6.dylib (compatibility version 15.0.0, current version 15.0.0)
-            /usr/local/lib/libfontconfig.1.dylib (compatibility version 6.0.0, current version 6.4.0)
-            /usr/local/lib/libspeex.1.dylib (compatibility version 7.0.0, current version 7.0.0)
+        上面列出来的就是我们之前编译好的第三方库，因此我们不仅要将mplayer本身拷贝到对方的Mac，还要将上面列出的dylib拷贝到相应的位置(/usr/local/lib/)。
 
-        因此，我们不仅要将mplayer本身拷贝到对方的电脑，还要将
+        这是一个可行的办法，但是我不推荐拷贝到/usr/local/lib，一是麻烦，二是他可能会带来文件污染。我推荐下面的方法:
+
+        * **我们可以重定向动态链接库的路径**
+
+            Mac中有一款工具 install_name_tool 可以**修改二进制文件中的动态链接库的路径**，具体使用方法，例如如下：
+                install_name_tool -change /usr/local/lib/libfreetype.6.dylib @executable_path/lib/libfreetype.6.dylib mplayer
+            运行了上面的命令之后，当我们再次用 otool 查看 mplayer，会得到如下结果:
+                QZYMBP17:binaries NILTSH$ otool -L mplayer
+                ...
+                    @executable_path/lib/libfreetype.6.dylib (compatibility version 15.0.0, current version 15.0.0)
+                ...
+            /usr/local/lib/libfreetype.6.dylib 被修改成了 @executable_path/lib/libfreetype.6.dylib，这意味着 mplayer 将从自己所在文件夹下的lib文件夹中去寻找libfreetype.dylib，而并非/usr/local/lib/。
+
+        这样我们就可以将自己做好的二进制文件按照如下的文件夹结构打包发布:
+            |-mplayer
+            \-lib
+              |-libfreetype.6.dylib
+              |-libfontconfig.1.dylib
+              \-libspeex.1.dylib
+
+        **大功告成！**
+
+        将上面的一系列修改写成脚本：
+            #!/bin/sh
+
+            if [[ $# -lt 1 ]]; then
+                echo "Usage: modify.sh FILE"
+                exit 1
+            fi
+
+            otool $1 | grep local | cut -d'(' -f1 | sed -e 's/^[ \t]*//' | while read line
+            do
+                newline=`echo ${line} | sed -e 's|/usr/local|@executable_path|'`
+                install_name_tool -change ${line} ${newline} $1
+            done;
