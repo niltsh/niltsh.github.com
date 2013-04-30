@@ -2,36 +2,40 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/01/31/about-donation-to-mplayerx/</loc>
-        <lastmod>2013-02-01T15:57:20+09:00</lastmod>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/</loc>
-        <lastmod>2013-02-01T15:57:20+09:00</lastmod>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/02/01/hidden-settings/</loc>
-        <lastmod>2013-02-01T15:57:20+09:00</lastmod>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
     <url>
         <loc>
             http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/
         </loc>
-        <lastmod>2013-02-19T14:53:00+09:00</lastmod>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
     <url>
-        <loc>http://blog.mplayerx.org/about/</loc>
-        <lastmod>2013-02-01T15:57:20+09:00</lastmod>
+        <loc>http://blog.mplayerx.org/blog/2013/04/24/bian-yi-mplayer/</loc>
+        <lastmod>2013-04-30T12:02:39+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/robots.txt</loc>
-        <lastmod>2013-02-01T15:57:20+09:00</lastmod>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/archives/</loc>
-        <lastmod>2013-02-19T14:53:00+09:00</lastmod>
+        <lastmod>2013-04-30T12:02:39+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/</loc>
-        <lastmod>2013-02-19T14:53:00+09:00</lastmod>
+        <lastmod>2013-04-30T12:02:39+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.mplayerx.org/about/</loc>
+        <lastmod>2013-04-24T12:46:33+09:00</lastmod>
     </url>
 </urlset>
