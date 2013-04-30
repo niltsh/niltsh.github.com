@@ -2,40 +2,40 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/01/31/about-donation-to-mplayerx/</loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
+        <lastmod>2013-02-02T16:38:19+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/</loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
+        <lastmod>2013-02-02T16:38:19+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/02/01/hidden-settings/</loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
+        <lastmod>2013-02-02T16:38:19+09:00</lastmod>
     </url>
     <url>
         <loc>
             http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/
         </loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
+        <lastmod>2013-04-05T22:31:10+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/blog/2013/04/24/bian-yi-mplayer/</loc>
-        <lastmod>2013-04-30T16:24:51+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://blog.mplayerx.org/robots.txt</loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://blog.mplayerx.org/blog/archives/</loc>
-        <lastmod>2013-04-30T16:24:51+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://blog.mplayerx.org/</loc>
-        <lastmod>2013-04-30T16:24:51+09:00</lastmod>
+        <lastmod>2013-04-30T20:05:51+09:00</lastmod>
     </url>
     <url>
         <loc>http://blog.mplayerx.org/about/</loc>
-        <lastmod>2013-04-30T16:18:04+09:00</lastmod>
+        <lastmod>2013-01-31T19:45:44+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.mplayerx.org/blog/archives/</loc>
+        <lastmod>2013-04-30T20:05:51+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.mplayerx.org/</loc>
+        <lastmod>2013-04-30T20:05:51+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.mplayerx.org/robots.txt</loc>
+        <lastmod>2013-01-31T19:45:44+09:00</lastmod>
     </url>
 </urlset>
