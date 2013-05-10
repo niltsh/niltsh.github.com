@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Use version number with Xcode and git - No More Than Nothing</title>
+  <meta name="author" content="Zongyao Qu">
+
+  
+  <meta name="description" content="As a Sparkled application, MPlayerX needs an automatic count-up mechanism between versions. 1. Count up git versions Git doesn&#8217;t provide &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="No More Than Nothing" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11872577-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">No More Than Nothing</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.mplayerx.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Use Version Number With Xcode and Git</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-10T13:25:00+09:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As a <a href="http://sparkle.andymatuschak.org">Sparkled</a> application, MPlayerX needs an automatic count-up mechanism between versions.</p>
+
+<h3>1. Count up git versions</h3>
+
+<p>  Git doesn&#8217;t provide version number, it only gives out checksum of the commits, so let&#8217;s make one.</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span>version.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>
+</span><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'>git rev-list HEAD | sort &gt; config.git-hash
+</span><span class='line'><span class="nv">LOCALVER</span><span class="o">=</span><span class="sb">`</span>wc -l config.git-hash | awk <span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$LOCALVER</span> <span class="se">\&gt;</span> 1 <span class="o">]</span> ; <span class="k">then</span>
+</span><span class='line'><span class="k">    </span><span class="nv">VER</span><span class="o">=</span><span class="sb">`</span>git rev-list origin/master | sort | join config.git-hash - | wc -l | awk <span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="o">[</span> <span class="nv">$VER</span> !<span class="o">=</span> <span class="nv">$LOCALVER</span> <span class="o">]</span> ; <span class="k">then</span>
+</span><span class='line'><span class="k">        </span><span class="nv">VER</span><span class="o">=</span><span class="nv">$LOCALVER</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">## 0 is initial number</span>
+</span><span class='line'>    <span class="nv">VER</span><span class="o">=</span><span class="sb">`</span>expr <span class="k">${</span><span class="nv">VER</span><span class="k">}</span> + 0<span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">echo</span> <span class="nv">$VER</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">    </span><span class="nv">VER</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>rm -f config.git-hash
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  You could download this piece of script <a href="https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/version.sh">here</a>.</p>
+
+<p>  Please note that this script always count up commits in the remote branch <strong>origin/master</strong> and local, so change the <strong>7th</strong> line if you want to work in other branches.</p>
+
+<p>  You could set an initial number if necessary, in the <strong>15th</strong> line.</p>
+
+<h3>2. Modify the info.plist by the version number</h3>
+
+<p>  At first I implemented by some dirty string matching scripts, it works but ugly. Then I found <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/Introduction/Introduction.html">ScriptingBridge</a>, thanks to it I could access the plist by ruby as I do by ObjC, this is much easier.</p>
+
+<figure class='code'><figcaption><span>updateInfoPlist.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;osx/cocoa&#39;</span>
+</span><span class='line'><span class="kp">include</span> <span class="no">OSX</span>
+</span><span class='line'><span class="no">OSX</span><span class="o">.</span><span class="n">require_framework</span> <span class="s1">&#39;ScriptingBridge&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">info</span> <span class="o">=</span> <span class="no">NSMutableDictionary</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithContentsOfFile_</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">info</span> <span class="o">!=</span> <span class="kp">nil</span> <span class="k">then</span>
+</span><span class='line'>  <span class="c1">## could read the plist file</span>
+</span><span class='line'>  <span class="n">currentVersion</span> <span class="o">=</span> <span class="sx">%x[bash version.sh]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">currentVersion</span> <span class="o">==</span> <span class="s2">&quot;unknown&quot;</span> <span class="k">then</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;version is invalid!&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;version is valid:&quot;</span> <span class="o">+</span> <span class="n">currentVersion</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">currentVersion</span> <span class="o">=</span> <span class="n">currentVersion</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>      <span class="n">info</span><span class="o">.</span><span class="n">setValue_forKey_</span><span class="p">(</span><span class="n">currentVersion</span><span class="p">,</span> <span class="s2">&quot;CFBundleVersion&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">## also grab the commit checksum</span>
+</span><span class='line'>      <span class="n">commitHash</span> <span class="o">=</span> <span class="sx">%x[git rev-list --max-count=1 HEAD]</span>
+</span><span class='line'>      <span class="n">commitHash</span> <span class="o">=</span> <span class="n">commitHash</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>      <span class="n">info</span><span class="o">.</span><span class="n">setValue_forKey_</span><span class="p">(</span><span class="n">commitHash</span><span class="p">,</span> <span class="s2">&quot;CommitHash&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">info</span><span class="o">.</span><span class="n">writeToFile_atomically_</span><span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  This piece of script could be downloaded <a href="https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/updateInfoPlist.rb">here</a>.</p>
+
+<h3>3. Automate it</h3>
+
+<p>0. Put the two script files above into your project folder, and then open your project.</p>
+
+<p>1. Add a new <em>Aggregate Target</em>, let&#8217;s say <strong>Update version in info.plist</strong>.</p>
+
+<p>2. Inside of this target, add a <em>Run Script</em> build phase.</p>
+
+<p>3. Add the following code into the shell area.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># shell script goes here</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:/usr/local/bin:/usr/local/git/bin:/sw/bin
+</span><span class='line'>
+</span><span class='line'>ruby updateInfoPlist.rb Info.plist
+</span><span class='line'>touch -amfc Info.plist
+</span><span class='line'>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4. Then go back to your application target, <em>add the dependency</em>.</p>
+
+<p><img src="/images/use-version-number-with-xcode-and-git-1.png" width="1000" height="800" title="0-1-2-3" >
+<img src="/images/use-version-number-with-xcode-and-git-2.png" width="800" height="150" title="4" ></p>
+
+<h3>Notice</h3>
+
+<p>   Remember to deploy your application always in the same branch, otherwise the number could be messed up, since the script only count up commits in origin/master and you current local branch.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zongyao Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-10T13:25:00+09:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/scm/'>SCM</a>, <a class='category' href='/blog/categories/xcode/'>Xcode</a>, <a class='category' href='/blog/categories/git/'>git</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="false" data-width="300" data-show-faces="false"></div>
+  
+  <div style="margin-top:1em;"><script type="text/javascript"><!--
+    google_ad_client = "ca-pub-4557726861276515";
+    /* niltsh.github.com-small */
+    google_ad_slot = "3793320506";
+    google_ad_width = 468;
+    google_ad_height = 60;
+    //-->
+  </script>
+  <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script></div>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/24/bian-yi-mplayer/" title="Previous Post: mplayer的编译方法">&laquo; mplayer的编译方法</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/10/use-version-number-with-xcode-and-git/">Use version number with Xcode and git</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/24/bian-yi-mplayer/">mplayer的编译方法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/">Delete duplicated items in Open With...</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/01/hidden-settings/">Hidden Settings of MPlayerX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/01/call-mplayerx-thru-command-line/">Call MPlayerX thru script</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/niltsh">@niltsh</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'niltsh',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("niltsh", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/niltsh" class="twitter-follow-button" data-show-count="false">Follow @niltsh</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Zongyao Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blogmpx';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/';
+        var disqus_url = 'http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<div style="margin-left:auto;margin-right:auto;background:#000;border-bottom:0px;width:728px;height:90px;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4557726861276515";
+/* niltsh.github.com-homepage-banner */
+google_ad_slot = "6746786906";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+</body>
+</html>

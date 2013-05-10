@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SCM | No More Than Nothing]]></title>
+  <link href="http://blog.mplayerx.org/blog/categories/scm/atom.xml" rel="self"/>
+  <link href="http://blog.mplayerx.org/"/>
+  <updated>2013-05-10T20:05:18+09:00</updated>
+  <id>http://blog.mplayerx.org/</id>
+  <author>
+    <name><![CDATA[Zongyao Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Use version number with Xcode and git]]></title>
+    <link href="http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git/"/>
+    <updated>2013-05-10T13:25:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2013/05/10/use-version-number-with-xcode-and-git</id>
+    <content type="html"><![CDATA[<p>As a <a href="http://sparkle.andymatuschak.org">Sparkled</a> application, MPlayerX needs an automatic count-up mechanism between versions.</p>
+
+<h3>1. Count up git versions</h3>
+
+<p>  Git doesn't provide version number, it only gives out checksum of the commits, so let's make one.</p>
+
+<!-- more -->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>version.sh </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;git rev-list HEAD | sort &gt; config.git-hash
+</span><span class='line'><span class="nv">LOCALVER</span><span class="o">=</span>&lt;code&gt;wc -l config.git-hash | awk <span class="s1">&#39;{print $1}&#39;</span>&lt;/code&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;if <span class="o">[</span> <span class="nv">$LOCALVER</span> &gt; 1 <span class="o">]</span> ; <span class="k">then</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;VER<span class="o">=</span><span class="sb">`</span>git rev-list origin/master | sort | join config.git-hash - | wc -l | awk <span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$VER</span> !<span class="o">=</span> <span class="nv">$LOCALVER</span> <span class="o">]</span> ; <span class="k">then</span>
+</span><span class='line'><span class="k">    </span><span class="nv">VER</span><span class="o">=</span><span class="nv">$LOCALVER</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## 0 is initial number</span>
+</span><span class='line'><span class="nv">VER</span><span class="o">=</span><span class="sb">`</span>expr <span class="k">${</span><span class="nv">VER</span><span class="k">}</span> + 0<span class="sb">`</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="nv">$VER</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;else&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;VER<span class="o">=</span><span class="s2">&quot;unknown&quot;</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;fi
+</span><span class='line'>rm -f config.git-hash
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>  You could download this piece of script <a href="https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/version.sh">here</a>.</p>
+
+<p>  Please note that this script always count up commits in the remote branch <strong>origin/master</strong> and local, so change the <strong>7th</strong> line if you want to work in other branches.</p>
+
+<p>  You could set an initial number if necessary, in the <strong>15th</strong> line.</p>
+
+<h3>2. Modify the info.plist by the version number</h3>
+
+<p>  At first I implemented by some dirty string matching scripts, it works but ugly. Then I found <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/Introduction/Introduction.html">ScriptingBridge</a>, thanks to it I could access the plist by ruby as I do by ObjC, this is much easier.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>updateInfoPlist.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;osx/cocoa&#39;</span>
+</span><span class='line'><span class="kp">include</span> <span class="no">OSX</span>
+</span><span class='line'><span class="no">OSX</span><span class="o">.</span><span class="n">require_framework</span> <span class="s1">&#39;ScriptingBridge&#39;</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;info = NSMutableDictionary.alloc.initWithContentsOfFile_(ARGV[0])&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="k">if</span> <span class="n">info</span> <span class="o">!=</span> <span class="kp">nil</span> <span class="k">then</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;## could read the plist file</span>
+</span><span class='line'><span class="sr">currentVersion = %x[bash version.sh]</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">if currentVersion == &quot;unknown&quot; then</span>
+</span><span class='line'><span class="sr">    puts &quot;version is invalid!&quot;</span>
+</span><span class='line'><span class="sr">else</span>
+</span><span class='line'><span class="sr">    puts &quot;version is valid:&quot; + currentVersion</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">    currentVersion = currentVersion.chomp</span>
+</span><span class='line'><span class="sr">    info.setValue_forKey_(currentVersion, &quot;CFBundleVersion&quot;)</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">    ## also grab the commit checksum</span>
+</span><span class='line'><span class="sr">    commitHash = %x[git rev-list --max-count=1 HEAD]</span>
+</span><span class='line'><span class="sr">    commitHash = commitHash.chomp</span>
+</span><span class='line'><span class="sr">    info.setValue_forKey_(commitHash, &quot;CommitHash&quot;)</span>
+</span><span class='line'><span class="sr">    info.writeToFile_atomically_(ARGV[0], 0)</span>
+</span><span class='line'><span class="sr">end</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>  This piece of script could be downloaded <a href="https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/updateInfoPlist.rb">here</a>.</p>
+
+<h3>3. Automate it</h3>
+
+<p>0. Put the two script files above into your project folder, and then open your project.</p>
+
+<p>1. Add a new <em>Aggregate Target</em>, let's say <strong>Update version in info.plist</strong>.</p>
+
+<p>2. Inside of this target, add a <em>Run Script</em> build phase.</p>
+
+<p>3. Add the following code into the shell area.
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;shell script goes here&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;export <span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:/usr/local/bin:/usr/local/git/bin:/sw/bin&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;ruby updateInfoPlist.rb Info.plist
+</span><span class='line'>touch -amfc Info.plist&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;exit 0
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+4. Then go back to your application target, <em>add the dependency</em>.</p>
+
+<p><img src="/images/use-version-number-with-xcode-and-git-1.png" width="1000" height="800" title="0-1-2-3" >
+<img src="/images/use-version-number-with-xcode-and-git-2.png" width="800" height="150" title="4" ></p>
+
+<h3>Notice</h3>
+
+<p>   Remember to deploy your application always in the same branch, otherwise the number could be messed up, since the script only count up commits in origin/master and you current local branch.</p>
+]]></content>
+  </entry>
+  
+</feed>
