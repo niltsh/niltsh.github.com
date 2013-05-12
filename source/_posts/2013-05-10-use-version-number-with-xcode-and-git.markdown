@@ -39,7 +39,7 @@ rm -f config.git-hash
 
   You could download this piece of script [here](https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/version.sh).
 
-  Please note that this script always count up commits in the remote branch **origin/master** and local, so change the **7th** line if you want to work in other branches.
+  Please note that this script always count up commits in the remote branch **origin/master** and local, so change the **8th** line if you want to work in other branches.
 
   You could set an initial number if necessary, in the **15th** line.
 
