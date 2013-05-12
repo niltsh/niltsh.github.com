@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2013-05-10T20:05:18+09:00</updated>
+  <updated>2013-05-12T12:46:24+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -79,7 +79,7 @@
 
 <p>  You could download this piece of script <a href="https://raw.github.com/niltsh/MPlayerX/sparkle/MPlayerX/version.sh">here</a>.</p>
 
-<p>  Please note that this script always count up commits in the remote branch <strong>origin/master</strong> and local, so change the <strong>7th</strong> line if you want to work in other branches.</p>
+<p>  Please note that this script always count up commits in the remote branch <strong>origin/master</strong> and local, so change the <strong>8th</strong> line if you want to work in other branches.</p>
 
 <p>  You could set an initial number if necessary, in the <strong>15th</strong> line.</p>
 
