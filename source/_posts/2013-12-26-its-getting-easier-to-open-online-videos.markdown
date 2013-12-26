@@ -10,7 +10,7 @@ In previous versions, MPlayerX could play the videos in [Youtube.com](http://www
 
 However, you have to copy the URL → open MPlayerX → open URL panel → paste the URL, kind of annoying and even stop myself using this feature.
 
-From 1.0.21, MPlayerX simplifies the usage much more, furthermore, [viemo](http://vimeo.com), [youku](http://youku.com), [Instagram](http://instagram.com) are getting supported.
+From 1.0.21, MPlayerX simplifies the usage much more, furthermore, [vimeo](http://vimeo.com), [youku](http://youku.com), [Instagram](http://instagram.com) are getting supported.
 
 Here is how to:
 <!-- more -->
