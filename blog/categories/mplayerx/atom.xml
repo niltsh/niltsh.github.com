@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MPlayerX | No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/blog/categories/mplayerx/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2013-05-12T12:46:24+09:00</updated>
+  <updated>2013-12-26T17:59:19+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[It's getting easier to open videos online]]></title>
+    <link href="http://blog.mplayerx.org/blog/2013/12/26/its-getting-easier-to-open-online-videos/"/>
+    <updated>2013-12-26T16:51:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2013/12/26/its-getting-easier-to-open-online-videos</id>
+    <content type="html"><![CDATA[<p>In previous versions, MPlayerX could play the videos in <a href="http://www.youtube.com">Youtube.com</a> directly.</p>
+
+<p>However, you have to copy the URL → open MPlayerX → open URL panel → paste the URL, kind of annoying and even stop myself using this feature.</p>
+
+<p>From 1.0.21, MPlayerX simplifies the usage much more, furthermore, <a href="http://vimeo.com">viemo</a>, <a href="http://youku.com">youku</a>, <a href="http://instagram.com">Instagram</a> are getting supported.</p>
+
+<p>Here is how to:</p>
+
+<!-- more -->
+
+
+<h3>1. Drag the link directly</h3>
+
+<p><img src="/images/MPlayerX-Open-URL/001.jpg" width="800" height="500" title="1" ></p>
+
+<p><img src="/images/MPlayerX-Open-URL/002.jpg" width="800" height="500" title="1" ></p>
+
+<p><img src="/images/MPlayerX-Open-URL/003.jpg" width="800" height="500" title="1" ></p>
+
+<h3>2. Open the URL in Services menu</h3>
+
+<p><img src="/images/MPlayerX-Open-URL/004.jpg" width="800" height="500" title="1" ></p>
+
+<h3>In case you don't see "MPlayerX: Open URL" in the contextual menu, please go to System Preference to enable it.</h3>
+
+<p><img src="/images/MPlayerX-Open-URL/005.jpg" width="800" height="500" title="1" ></p>
+
+<p>Note: if there is no entry in System Preference, you could log off and on once. Sometimes OS needs to re-login to find the necessary info from application's package.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Use version number with Xcode and git]]></title>
@@ -778,89 +814,6 @@
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Call MPlayerX thru script]]></title>
-    <link href="http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line/"/>
-    <updated>2013-02-01T09:35:00+09:00</updated>
-    <id>http://blog.mplayerx.org/blog/2013/02/01/call-mplayerx-thru-command-line</id>
-    <content type="html"><![CDATA[<p>MPlayerX supports <strong>Shell</strong> script command line and <strong>AppleScript</strong> as its integration to the OS.</p>
-
-<ul>
-<li><h3>For Shell script</h3></li>
-</ul>
-
-
-<p>Usage:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /path/to/MPlayerX.app --args -name1 value1 -name2 value2 ...
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<!-- more -->
-
-
-<p>Besides the names in the table below, the strings declared in <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/UserDefaults.m">this file</a> could also be used as name.</p>
-
-<div>
-<style type="text/css" media="screen">
-* + table {
-  border-style:solid;
-  border-width:1px;
-  border-color:#b7b3b7;
-  margin: 16px;
-}
-* + table th, * + table td {
-  border-color:#b7b3b7;
-  border-width:1px;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-* + table th {
-  border-style:solid;
-  font-weight:bold;
-  background: url("/images/noise.png?1330434582") repeat scroll left top #F7F3F7;
-  text-align:center;
-}
-
-* + table td {
-    border-style:dashed;
-}
-</style>
-<table>
-    <tr>
-        <th>name</th>
-        <th>value</th>
-    </tr>
-    <tr>
-        <td>url</td>
-        <td>the url of the media<br></td>
-    </tr>
-    <tr>
-        <td>file</td>
-        <td>the path of the media file<br></td>
-    </tr>
-</table>
-</div>
-
-
-<h5>A real world example</h5>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a /Applications/MPlayerX.app --args -file /Movies/myfavorite.mp4 -volume 50 -StartByFullScreen YES
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<ul>
-<li><h3>For AppleScript</h3></li>
-</ul>
-
-
-<p>MPlayerX just started to support AppleScript in 1.0.17, its implementation still stays in primary status.</p>
-
-<p>Usually you could use <em>AppleScript Editor</em> to look up all the functions provided by MPlayerX, for geeks, the source code is <a href="https://github.com/niltsh/MPlayerX/blob/sparkle/MPlayerX/MPlayerXScript.sdef">here</a>.</p>
 ]]></content>
   </entry>
   
