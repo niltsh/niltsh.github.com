@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2014-01-15T12:01:53+09:00</updated>
+  <updated>2014-01-15T12:03:05+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -27,6 +27,11 @@
 <p>If you found MPlayerX failed to play some H264, MP4, MPEG2, AVC contents, please try the following instructions to turn off HAD.</p>
 
 <h4>in Preference → Advanced → Extra options, copy&amp;paste the following string</h4>
+
+<!-- more -->
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>-vc -ffh264vda,</span></code></pre></td></tr></table></div></figure>
