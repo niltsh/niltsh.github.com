@@ -9,7 +9,7 @@
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="In previous versions, MPlayerX could play the videos in Youtube.com directly. However, you have to copy the URL → open MPlayerX → open URL panel → &hellip;">
+  <meta name="description" content="MPlayerX supports to decode the video with Hardware Accelerated Decoder (HAD). This feature uses your modern GPU to decode video frame, so that free &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/">How to Turn Off Hardware Accelerated Decoder</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-15T11:16:00+09:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>MPlayerX supports to decode the video with Hardware Accelerated Decoder (HAD). This feature uses your modern GPU to decode video frame, so that free your CPU for other tasks, and decrease the power consumption in the meantime, hopefully.</p>
+
+<p>Currently, there is no easy way to turn on/off the HAD. And ideally, this feature should be transparent to users, and HAD should be always turned on.</p>
+
+<p>However, the development on HAD is still in the preliminary stage, sometimes HAD may fail to decode the frame and even cause MPlayerX&#8217;s core crash.</p>
+
+<p>If you found MPlayerX failed to play some H264, MP4, MPEG2, AVC contents, please try the following instructions to turn off HAD.</p>
+
+<h4>in Preference → Advanced → Extra options, copy&amp;paste the following string</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-vc -ffh264vda,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you could tell in the snapshot,</p>
+
+<p><img src="/images/turn-off-had.png"></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -435,6 +489,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/">How to turn off Hardware Accelerated Decoder</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/12/26/its-getting-easier-to-open-online-videos/">It&#8217;s getting easier to open videos online</a>
       </li>
     
@@ -448,10 +506,6 @@
     
       <li class="post">
         <a href="/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/">Delete duplicated items in Open With&#8230;</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/01/hidden-settings/">Hidden Settings of MPlayerX</a>
       </li>
     
   </ul>
@@ -513,7 +567,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Zongyao Qu -
+  Copyright &copy; 2014 - Zongyao Qu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

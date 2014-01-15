@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2013-12-27T09:43:09+09:00</updated>
+  <updated>2014-01-15T11:57:00+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to turn off Hardware Accelerated Decoder]]></title>
+    <link href="http://blog.mplayerx.org/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/"/>
+    <updated>2014-01-15T11:16:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder</id>
+    <content type="html"><![CDATA[<p>MPlayerX supports to decode the video with Hardware Accelerated Decoder (HAD). This feature uses your modern GPU to decode video frame, so that free your CPU for other tasks, and decrease the power consumption in the meantime, hopefully.</p>
+
+<p>Currently, there is no easy way to turn on/off the HAD. And ideally, this feature should be transparent to users, and HAD should be always turned on.</p>
+
+<p>However, the development on HAD is still in the preliminary stage, sometimes HAD may fail to decode the frame and even cause MPlayerX&#8217;s core crash.</p>
+
+<p>If you found MPlayerX failed to play some H264, MP4, MPEG2, AVC contents, please try the following instructions to turn off HAD.</p>
+
+<h4>in Preference → Advanced → Extra options, copy&amp;paste the following string</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-vc -ffh264vda,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you could tell in the snapshot,</p>
+
+<p><img src="http://blog.mplayerx.org/images/turn-off-had.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[It's getting easier to open videos online]]></title>
