@@ -14,11 +14,15 @@ However, the development on HAD is still in the preliminary stage, sometimes HAD
 
 If you found MPlayerX failed to play some H264, MP4, MPEG2, AVC contents, please try the following instructions to turn off HAD.
 
+<!-- more -->
+
 #### in Preference → Advanced → Extra options, copy&paste the following string
 
 ```
 -vc -ffh264vda,
 ```
+
+PLEASE DO NOT FORGET THE COMMA!
 
 As you could tell in the snapshot,
 
