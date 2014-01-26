@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2014-01-15T12:09:49+09:00</updated>
+  <updated>2014-01-26T23:12:04+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -809,6 +809,13 @@
         <td> YES </td>
         <td> Enable Hardware Accelerated Decoding </td>
         <td> 1.0.17 </td>
+    </tr>
+<tr>
+<td> AutoPauseWhenMiniaturized </td>
+        <td> boolean </td>
+        <td> NO </td>
+        <td> Pause automatically when minimized </td>
+        <td> 1.0.22 </td>
     </tr>
 </table>
 </div>
