@@ -269,6 +269,13 @@ defaults write org.niltsh.MPlayerX Name -type Value
 		<td> Enable Hardware Accelerated Decoding </td>
 		<td> 1.0.17 </td>
 	</tr>
+<tr>
+<td> AutoPauseWhenMiniaturized </td>
+		<td> boolean </td>
+		<td> NO </td>
+		<td> Pause automatically when minimized </td>
+		<td> 1.0.22 </td>
+	</tr>
 </table>
 </div>
 
