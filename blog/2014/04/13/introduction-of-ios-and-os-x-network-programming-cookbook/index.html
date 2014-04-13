@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Delete duplicated items in Open With... - No More Than Nothing</title>
+  <title>Introduction of iOS and OS X Network Programming Cookbook - No More Than Nothing</title>
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="Some users said they have duplicated menu items in their &#8220;Open With &#8230;&#8221; of the contextual menu, looks like First, please check &hellip;">
+  <meta name="description" content="Recently I got a chance to work on a new project which needs utilize the network, such as HTTP protocol, socket programming, etc. I was a newbie &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/">
+  <link rel="canonical" href="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Delete Duplicated Items in Open With...</h1>
+      <h1 class="entry-title">Introduction of iOS and OS X Network Programming Cookbook</h1>
     
     
       <p class="meta">
@@ -94,33 +94,26 @@
   
 
 
-<time datetime="2013-02-18T19:18:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
-        
-         | <a href="#disqus_thread">Comments</a>
+<time datetime="2014-04-13T17:16:00+09:00" pubdate data-updated="true">Apr 13<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Some users said they have duplicated menu items in their &#8220;Open With &#8230;&#8221; of the contextual menu, looks like</p>
+<div class="entry-content"><p>Recently I got a chance to work on a new project which needs utilize the network, such as HTTP protocol, socket programming, etc.</p>
 
-<p><img src="/images/duplicated_items_contextual_menu.png" width="400" height="300" title="Snapshot" ></p>
+<p>I was a newbie about this topic, so I found myself a book as the guide book for network programming. It is <a href="http://goo.gl/hRDLHj">“iOS and OS X Network Programming Cookbook”</a>.</p>
 
-<!-- more -->
+<p><img src="http://dgdsbygo8mp3h.cloudfront.net/sites/default/files/imagecache/productview_larger/8085OT_Cookbook_cover.jpg" alt="book title" /></p>
 
+<p>As the title indicated, it is a cookbook for someone like me, who has the programming basis on OSX/iOS, and wants to take a quick look at the network programming especially.</p>
 
-<p><strong>First</strong>, please check whether you have downloaded multiple copies of the same application, <a href="http://support.apple.com/kb/ht2531">Spotlight</a> is your good assistant.</p>
+<p>This book explained how to program in OSX/iOS at several levels, from the lowest BSD socket layer to the highest AFNetworking library.</p>
 
-<p>If there is only one copy, the following command would fix it.</p>
+<p>BSD socket library provides you the lowest level and most flexibility, however this also means you have to everything yourself. If you just want to use the latest HTTP technology, such as json, plist data transferring and analysis, there are better choices on OSX/iOS, such as AFNetworking, MKNetworkKit. These libraries are purely Objective-C, modern designed, and should be much easier to use than BSD library’s C API.</p>
 
-<figure class='code'><figcaption><span>In Terminal.app, the command looks like </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain <span class="nb">local</span> -domain system -domain user
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>With this command, the database of <strong>LaunchService</strong> will be rebuilt, and duplicated entries in &#8220;Open With&#8230;&#8221; should disappear.</p>
+<p>There are also several sample code shown in the book, basically a web server and client implementation is demonstrated, by utilizing each level of technology. These sample code self-explained how to implement the network programming, also help the readers to understand which technology should be their best choice.</p>
 </div>
 
 
@@ -143,12 +136,12 @@
   
 
 
-<time datetime="2013-02-18T19:18:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+<time datetime="2014-04-13T17:16:00+09:00" pubdate data-updated="true">Apr 13<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/mac/'>Mac</a>
+    <a class='category' href='/blog/categories/osx/'>OSX</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>, <a class='category' href='/blog/categories/network/'>network</a>
   
 </span>
 
@@ -157,7 +150,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -181,20 +174,12 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/02/01/hidden-settings/" title="Previous Post: Hidden Settings of MPlayerX">&laquo; Hidden Settings of MPlayerX</a>
+        <a class="basic-alignment left" href="/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/" title="Previous Post: How to turn off Hardware Accelerated Decoder">&laquo; How to turn off Hardware Accelerated Decoder</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/04/24/bian-yi-mplayer/" title="Next Post: mplayer的编译方法">mplayer的编译方法 &raquo;</a>
       
     </p>
   </footer>
 </article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
 
 </div>
 
@@ -290,22 +275,6 @@
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'blogmpx';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/';
-        var disqus_url = 'http://blog.mplayerx.org/blog/2013/02/18/delete-duplicated-items-in-open-with-dot-dot-dot/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

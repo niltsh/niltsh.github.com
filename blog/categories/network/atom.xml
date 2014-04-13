@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: network | No More Than Nothing]]></title>
+  <link href="http://blog.mplayerx.org/blog/categories/network/atom.xml" rel="self"/>
+  <link href="http://blog.mplayerx.org/"/>
+  <updated>2014-04-13T17:25:07+09:00</updated>
+  <id>http://blog.mplayerx.org/</id>
+  <author>
+    <name><![CDATA[Zongyao Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Introduction of iOS and OS X Network Programming Cookbook]]></title>
+    <link href="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/"/>
+    <updated>2014-04-13T17:16:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook</id>
+    <content type="html"><![CDATA[<p>Recently I got a chance to work on a new project which needs utilize the network, such as HTTP protocol, socket programming, etc.</p>
+
+<p>I was a newbie about this topic, so I found myself a book as the guide book for network programming. It is <a href="http://goo.gl/hRDLHj">“iOS and OS X Network Programming Cookbook”</a>.</p>
+
+<p><img src="http://dgdsbygo8mp3h.cloudfront.net/sites/default/files/imagecache/productview_larger/8085OT_Cookbook_cover.jpg" alt="book title" /></p>
+
+<p>As the title indicated, it is a cookbook for someone like me, who has the programming basis on OSX/iOS, and wants to take a quick look at the network programming especially.</p>
+
+<p>This book explained how to program in OSX/iOS at several levels, from the lowest BSD socket layer to the highest AFNetworking library.</p>
+
+<p>BSD socket library provides you the lowest level and most flexibility, however this also means you have to everything yourself. If you just want to use the latest HTTP technology, such as json, plist data transferring and analysis, there are better choices on OSX/iOS, such as AFNetworking, MKNetworkKit. These libraries are purely Objective-C, modern designed, and should be much easier to use than BSD library’s C API.</p>
+
+<p>There are also several sample code shown in the book, basically a web server and client implementation is demonstrated, by utilizing each level of technology. These sample code self-explained how to implement the network programming, also help the readers to understand which technology should be their best choice.</p>
+]]></content>
+  </entry>
+  
+</feed>
