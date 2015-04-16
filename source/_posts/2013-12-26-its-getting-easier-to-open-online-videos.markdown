@@ -2,7 +2,7 @@
 layout: post
 title: "It's getting easier to open videos online"
 date: 2013-12-26 16:51
-comments: true
+comments: false
 categories: MPlayerX youtube
 ---
 

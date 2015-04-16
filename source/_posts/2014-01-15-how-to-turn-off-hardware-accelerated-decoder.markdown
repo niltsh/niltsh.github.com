@@ -2,7 +2,7 @@
 layout: post
 title: "How to turn off Hardware Accelerated Decoder"
 date: 2014-01-15 11:16
-comments: true
+comments: false
 categories: MPlayerX 
 ---
 

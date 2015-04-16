@@ -2,7 +2,7 @@
 layout: post
 title: "About donation to MPlayerX"
 date: 2013-01-31 19:49
-comments: true
+comments: false
 categories: MPlayerX donation
 ---
 
