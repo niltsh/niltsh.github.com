@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: youtube | No More Than Nothing]]></title>
-  <link href="http://blog.mplayerx.org/blog/categories/youtube/atom.xml" rel="self"/>
+  <title><![CDATA[Category: update | No More Than Nothing]]></title>
+  <link href="http://blog.mplayerx.org/blog/categories/update/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
   <updated>2015-06-17T12:15:15+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
@@ -59,42 +59,6 @@
 
 <p>BRs,
 Zongyao Qu</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[It's getting easier to open videos online]]></title>
-    <link href="http://blog.mplayerx.org/blog/2013/12/26/its-getting-easier-to-open-online-videos/"/>
-    <updated>2013-12-26T16:51:00+09:00</updated>
-    <id>http://blog.mplayerx.org/blog/2013/12/26/its-getting-easier-to-open-online-videos</id>
-    <content type="html"><![CDATA[<p>In previous versions, MPlayerX could play the videos in <a href="http://www.youtube.com">Youtube.com</a> directly.</p>
-
-<p>However, you have to copy the URL → open MPlayerX → open URL panel → paste the URL, kind of annoying and even stop myself using this feature.</p>
-
-<p>From 1.0.21, MPlayerX simplifies the usage much more, furthermore, <a href="http://vimeo.com">vimeo</a>, <a href="http://youku.com">youku</a>, <a href="http://instagram.com">Instagram</a> are getting supported.</p>
-
-<p>Here is how to:</p>
-
-<!-- more -->
-
-
-<h3>1. Drag the link directly</h3>
-
-<p><img src="/images/MPlayerX-Open-URL/001.jpg" width="800" height="500" title="1" ></p>
-
-<p><img src="/images/MPlayerX-Open-URL/002.jpg" width="800" height="500" title="1" ></p>
-
-<p><img src="/images/MPlayerX-Open-URL/003.jpg" width="800" height="500" title="1" ></p>
-
-<h3>2. Open the URL in Services menu</h3>
-
-<p><img src="/images/MPlayerX-Open-URL/004.jpg" width="800" height="500" title="1" ></p>
-
-<h3>In case you don't see "MPlayerX: Open URL" in the contextual menu, please go to System Preference to enable it.</h3>
-
-<p><img src="/images/MPlayerX-Open-URL/005.jpg" width="800" height="500" title="1" ></p>
-
-<p>Note: if there is no entry in System Preference, you could log off and on once. Sometimes OS needs to re-login to find the necessary info from application's package.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[No More Than Nothing]]></title>
   <link href="http://blog.mplayerx.org/atom.xml" rel="self"/>
   <link href="http://blog.mplayerx.org/"/>
-  <updated>2015-04-16T11:52:05+09:00</updated>
+  <updated>2015-06-17T12:15:15+09:00</updated>
   <id>http://blog.mplayerx.org/</id>
   <author>
     <name><![CDATA[Zongyao Qu]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[1.1.0 is out.]]></title>
+    <link href="http://blog.mplayerx.org/blog/2015/06/13/1-dot-1-0-is-out/"/>
+    <updated>2015-06-13T08:57:00+09:00</updated>
+    <id>http://blog.mplayerx.org/blog/2015/06/13/1-dot-1-0-is-out</id>
+    <content type="html"><![CDATA[<p>Finally I managed to make some time to work this out.</p>
+
+<p>Except the change on the look, I&#8217;d like to introduce some interesting changes internally.</p>
+
+<h3>1. Partial update.</h3>
+
+<p>By far, The most issues I have received is that <strong><em>MPlayerX was unable to play some file.</em></strong> Most of the time, such issue is not related with MPlayerX itself, but ffmpeg or mplayer which works as the player core inside of MPlayerX.</p>
+
+<p>So I introduced this so called <strong><em>Partial Update</em></strong> into 1.1.0, which enable me to update the ffmpeg/mplayer part without updatig the whole app. Hopfully It could help me to update the player core to resolve your playback issues more quickly.</p>
+
+<!-- more -->
+
+
+<p>It is still a hidden settings, for the one who only wants to know how to enable it, here you go</p>
+
+<pre><code>    cd ~/Library/Preferences
+    defaults write org.niltsh.MPlayerX CorePartialUpdate 1
+</code></pre>
+
+<p>For the one who wants to know how it works, please give me 5 minutes to explain the mechanism.</p>
+
+<p>MPlayerX now wraps the core part as a bundle. Each time it starts, it will check ~/Library/Application Support/MPlayerX/bundles, if there has the latest bundle, MPlayerX will just use it, Otherwize, MPlayerX will overwirte with the default bundle inside of the App first.</p>
+
+<p><img src="http://blog.mplayerx.org/images/partial-update/partialupdate-bundles.png" alt="bundles" /></p>
+
+<p>Afer that, MPlayerX will check a separate channel if there is any update for these bundles, if there is a match, it will download and replace the bundles at next start-up.</p>
+
+<p>And you will receive a notification as below,</p>
+
+<p><img src="http://blog.mplayerx.org/images/partial-update/partialupdate-notif.png" alt="notification" /></p>
+
+<h3>2. HTTPS support</h3>
+
+<p>About a yeaer ago, Youtube started to transfer all their video links into https, which broke MPlayerX&#8217;s online playback totally. Now MPlayerX add the support for https, and please enjoy the non-ads video again.</p>
+
+<p>There are still other trivial optimizations to find out, please enjoy the new version of MPlayerX.</p>
+
+<p>Thank you.</p>
+
+<p>BRs,
+Zongyao Qu</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Some Progress on MPlayerX]]></title>
@@ -632,229 +681,270 @@
 
 <table>
 <tr>
-<th>Name</th>
+    <th>Name</th>
     <th>type</th>
     <th>default value</th>
     <th>comment</th>
     <th>available from</th>
 </tr>
 <tr>
-<td> SpeedStepIncre </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> when changing the speed in the accessary control(the TextField), the increment value when press ↑↓ </td>
-        <td> unknown </td>
-    </tr>
+    <td> SpeedStepIncre </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> when changing the speed in the accessary control(the TextField), the increment value when press ↑↓ </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubDelayStepTime </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, the time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubDelayStepTime </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, the time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> AudioDelayStepTime </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, the time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> AudioDelayStepTime </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, the time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubScaleStepValue </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, it is rational to set this value within 0-1 </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubScaleStepValue </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, it is rational to set this value within 0-1 </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeL </td>
-        <td> float </td>
-        <td> -10 </td>
-        <td> when use ← to backward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeL </td>
+    <td> float </td>
+    <td> -10 </td>
+    <td> when use ← to backward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeR </td>
-        <td> float </td>
-        <td> 10 </td>
-        <td> when use → to forward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeR </td>
+    <td> float </td>
+    <td> 10 </td>
+    <td> when use → to forward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeU </td>
-        <td> float </td>
-        <td> 60 </td>
-        <td> when use ↑ to forward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeU </td>
+    <td> float </td>
+    <td> 60 </td>
+    <td> when use ↑ to forward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeB </td>
-        <td> float </td>
-        <td> -60 </td>
-        <td> when use ↓ to backward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeB </td>
+    <td> float </td>
+    <td> -60 </td>
+    <td> when use ↓ to backward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> VolumeStep </td>
-        <td> float </td>
-        <td> 10 </td>
-        <td> when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100) </td>
-        <td> unknown </td>
-    </tr>
+    <td> VolumeStep </td>
+    <td> float </td>
+    <td> 10 </td>
+    <td> when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100) </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SnapshotSavePath </td>
-        <td> string </td>
-        <td> <em>(internal value)</em> </td>
-        <td> if you don’t want to save the snapshot pics into your ~/Pictures, the <strong>Full Path</strong> of the folder where you want to save it </td>
-        <td> unknown </td>
-    </tr>
+    <td> SnapshotSavePath </td>
+    <td> string </td>
+    <td> <em>(internal value)</em> </td>
+    <td> if you don’t want to save the snapshot pics into your ~/Pictures, the <strong>Full Path</strong> of the folder where you want to save it </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> HideTitlebar </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> always hide titlebar even the mouse is hovering on the window </td>
-        <td> unknown </td>
-    </tr>
+    <td> HideTitlebar </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> always hide titlebar even the mouse is hovering on the window </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> LogMode </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> output logs to console </td>
-        <td> unknown </td>
-    </tr>
+    <td> LogMode </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> output logs to console </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> Prefer64bitMPlayer </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU </td>
-        <td> unknown </td>
-    </tr>
+    <td> Prefer64bitMPlayer </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> CloseOnStopped </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> When playback finished, whether to close the player window </td>
-        <td> unknown </td>
-    </tr>
+    <td> CloseOnStopped </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> When playback finished, whether to close the player window </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubBorderWidth </td>
-        <td> integer </td>
-        <td> 2 </td>
-        <td> border width of the subtitle </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubBorderWidth </td>
+    <td> integer </td>
+    <td> 2 </td>
+    <td> border width of the subtitle </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> CloseWndOnEsc </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> close window when pressing escape </td>
-        <td> unknown </td>
-    </tr>
+    <td> CloseWndOnEsc </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> close window when pressing escape </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> PlayWhenEnterFullScrn </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> auto resume when entering full screen if paused </td>
-        <td> unknown </td>
-    </tr>
+    <td> PlayWhenEnterFullScrn </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> auto resume when entering full screen if paused </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SupportAppleRemote </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Support Apple Remote (Remote Buddy users may want to disable this) </td>
-        <td> unknown </td>
-    </tr>
+    <td> SupportAppleRemote </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Support Apple Remote (Remote Buddy users may want to disable this) </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> AssSubMarginV </td>
-        <td> integer </td>
-        <td> 12 </td>
-        <td> the position of Subtitle from bottom, in pixels </td>
-        <td> unknown </td>
-    </tr>
+    <td> AssSubMarginV </td>
+    <td> integer </td>
+    <td> 12 </td>
+    <td> the position of Subtitle from bottom, in pixels </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> ResizeControlBar </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> let the control bar autoresizing with window, or keep it unchanged </td>
-        <td> unknown </td>
-    </tr>
+    <td> ResizeControlBar </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> let the control bar autoresizing with window, or keep it unchanged </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> InitialFrameSizeRatio </td>
-        <td> float </td>
-        <td> 1.0 </td>
-        <td> the initial frame size ratio when opening a video </td>
-        <td> unknown </td>
-    </tr>
+    <td> InitialFrameSizeRatio </td>
+    <td> float </td>
+    <td> 1.0 </td>
+    <td> the initial frame size ratio when opening a video </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> DisableLastStopBookmark </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> disable the last stopped time completely </td>
-        <td> unknown </td>
-    </tr>
+    <td> DisableLastStopBookmark </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> disable the last stopped time completely </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> ResizeStep </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> the ratio when stepping up/down window size </td>
-        <td> unknown </td>
-    </tr>
+    <td> ResizeStep </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> the ratio when stepping up/down window size </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> OldFullScreenMethod </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> the old style of full screen animation(only for Lion) </td>
-        <td> 1.0.9 </td>
-    </tr>
+    <td> OldFullScreenMethod </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> the old style of full screen animation(only for Lion) </td>
+    <td> 1.0.9 </td>
+</tr>
 <tr>
-<td> ClickTogPlayPause </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> single click to toggle play/pause </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> ClickTogPlayPause </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> single click to toggle play/pause </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> ARMenuKeyTogTimeDisp </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> AppleRemote menu key to toggle the elapse/remaining time </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> ARMenuKeyTogTimeDisp </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> AppleRemote menu key to toggle the elapse/remaining time </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> FFPThreshRatio </td>
-        <td> float </td>
-        <td> 1.8 </td>
-        <td> the threshold to judge pinch is happening with 4 fingers </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> FFPThreshRatio </td>
+    <td> float </td>
+    <td> 1.8 </td>
+    <td> the threshold to judge pinch is happening with 4 fingers </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> PauseShowTime </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> Show current time when paused </td>
-        <td> 1.0.14 </td>
-    </tr>
+    <td> PauseShowTime </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Show current time when paused </td>
+    <td> 1.0.14 </td>
+</tr>
 <tr>
-<td> ControlUIDetectMouseExit </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Hide control bar immediately when it exit from player window </td>
-        <td> 1.0.14 </td>
-    </tr>
+    <td> ControlUIDetectMouseExit </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Hide control bar immediately when it exit from player window </td>
+    <td> 1.0.14 </td>
+</tr>
 <tr>
-<td> EnableHWAccel2 </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Enable Hardware Accelerated Decoding </td>
-        <td> 1.0.17 </td>
-    </tr>
+    <td> EnableHWAccel2 </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Enable Hardware Accelerated Decoding </td>
+    <td> 1.0.17 </td>
+</tr>
 <tr>
-<td> AutoPauseWhenMiniaturized </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> Pause automatically when minimized </td>
-        <td> 1.0.22 </td>
-    </tr>
+    <td> AutoPauseWhenMiniaturized </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Pause automatically when minimized </td>
+    <td> 1.0.22 </td>
+</tr>
+<tr>
+    <td> CorePartialUpdate </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Enable MPlayerX to update the player core only. </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldUITitlebar </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Bring back the old style of Titlebar in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldUIControl </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Bring back the old style of control Scrubber in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldZoomButton </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Use the old style zoom button in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+
+<tr>
+    <td> LessDisturbWhenNonKey </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Do not show up the control scrubber even cursor hovers on the window, if player window is not activated </td>
+    <td> 1.1.0 </td>
+</tr>
+
 </table>
 </div>
 

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Introduction of iOS and OS X Network Programming Cookbook - No More Than Nothing</title>
+  <title>1.1.0 is out. - No More Than Nothing</title>
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="Recently I got a chance to work on a new project which needs utilize the network, such as HTTP protocol, socket programming, etc. I was a newbie &hellip;">
+  <meta name="description" content="Finally I managed to make some time to work this out. Except the change on the look, I&#8217;d like to introduce some interesting changes internally &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/">
+  <link rel="canonical" href="http://blog.mplayerx.org/blog/2015/06/13/1-dot-1-0-is-out/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Introduction of iOS and OS X Network Programming Cookbook</h1>
+      <h1 class="entry-title">1.1.0 Is Out.</h1>
     
     
       <p class="meta">
@@ -94,26 +94,54 @@
   
 
 
-<time datetime="2014-04-13T17:16:00+09:00" pubdate data-updated="true">Apr 13<span>th</span>, 2014</time>
+<time datetime="2015-06-13T08:57:00+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Recently I got a chance to work on a new project which needs utilize the network, such as HTTP protocol, socket programming, etc.</p>
+<div class="entry-content"><p>Finally I managed to make some time to work this out.</p>
 
-<p>I was a newbie about this topic, so I found myself a book as the guide book for network programming. It is <a href="http://goo.gl/hRDLHj">“iOS and OS X Network Programming Cookbook”</a>.</p>
+<p>Except the change on the look, I&#8217;d like to introduce some interesting changes internally.</p>
 
-<p><img src="http://dgdsbygo8mp3h.cloudfront.net/sites/default/files/imagecache/productview_larger/8085OT_Cookbook_cover.jpg" alt="book title" /></p>
+<h3>1. Partial update.</h3>
 
-<p>As the title indicated, it is a cookbook for someone like me, who has the programming basis on OSX/iOS, and wants to take a quick look at the network programming especially.</p>
+<p>By far, The most issues I have received is that <strong><em>MPlayerX was unable to play some file.</em></strong> Most of the time, such issue is not related with MPlayerX itself, but ffmpeg or mplayer which works as the player core inside of MPlayerX.</p>
 
-<p>This book explained how to program in OSX/iOS at several levels, from the lowest BSD socket layer to the highest AFNetworking library.</p>
+<p>So I introduced this so called <strong><em>Partial Update</em></strong> into 1.1.0, which enable me to update the ffmpeg/mplayer part without updatig the whole app. Hopfully It could help me to update the player core to resolve your playback issues more quickly.</p>
 
-<p>BSD socket library provides you the lowest level and most flexibility, however this also means you have to everything yourself. If you just want to use the latest HTTP technology, such as json, plist data transferring and analysis, there are better choices on OSX/iOS, such as AFNetworking, MKNetworkKit. These libraries are purely Objective-C, modern designed, and should be much easier to use than BSD library’s C API.</p>
+<!-- more -->
 
-<p>There are also several sample code shown in the book, basically a web server and client implementation is demonstrated, by utilizing each level of technology. These sample code self-explained how to implement the network programming, also help the readers to understand which technology should be their best choice.</p>
+
+<p>It is still a hidden settings, for the one who only wants to know how to enable it, here you go</p>
+
+<pre><code>    cd ~/Library/Preferences
+    defaults write org.niltsh.MPlayerX CorePartialUpdate 1
+</code></pre>
+
+<p>For the one who wants to know how it works, please give me 5 minutes to explain the mechanism.</p>
+
+<p>MPlayerX now wraps the core part as a bundle. Each time it starts, it will check ~/Library/Application Support/MPlayerX/bundles, if there has the latest bundle, MPlayerX will just use it, Otherwize, MPlayerX will overwirte with the default bundle inside of the App first.</p>
+
+<p><img src="/images/partial-update/partialupdate-bundles.png" alt="bundles" /></p>
+
+<p>Afer that, MPlayerX will check a separate channel if there is any update for these bundles, if there is a match, it will download and replace the bundles at next start-up.</p>
+
+<p>And you will receive a notification as below,</p>
+
+<p><img src="/images/partial-update/partialupdate-notif.png" alt="notification" /></p>
+
+<h3>2. HTTPS support</h3>
+
+<p>About a yeaer ago, Youtube started to transfer all their video links into https, which broke MPlayerX&#8217;s online playback totally. Now MPlayerX add the support for https, and please enjoy the non-ads video again.</p>
+
+<p>There are still other trivial optimizations to find out, please enjoy the new version of MPlayerX.</p>
+
+<p>Thank you.</p>
+
+<p>BRs,
+Zongyao Qu</p>
 </div>
 
 
@@ -136,12 +164,12 @@
   
 
 
-<time datetime="2014-04-13T17:16:00+09:00" pubdate data-updated="true">Apr 13<span>th</span>, 2014</time>
+<time datetime="2015-06-13T08:57:00+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/osx/'>OSX</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>, <a class='category' href='/blog/categories/network/'>network</a>
+    <a class='category' href='/blog/categories/mplayerx/'>MPlayerX</a>, <a class='category' href='/blog/categories/partial/'>partial</a>, <a class='category' href='/blog/categories/update/'>update</a>, <a class='category' href='/blog/categories/youtube/'>youtube</a>
   
 </span>
 
@@ -150,7 +178,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2014/04/13/introduction-of-ios-and-os-x-network-programming-cookbook/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.mplayerx.org/blog/2015/06/13/1-dot-1-0-is-out/" data-via="niltsh" data-counturl="http://blog.mplayerx.org/blog/2015/06/13/1-dot-1-0-is-out/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,10 +202,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/01/15/how-to-turn-off-hardware-accelerated-decoder/" title="Previous Post: How to turn off Hardware Accelerated Decoder">&laquo; How to turn off Hardware Accelerated Decoder</a>
+        <a class="basic-alignment left" href="/blog/2015/04/16/some-progress-on-mplayerx/" title="Previous Post: Some Progress on MPlayerX">&laquo; Some Progress on MPlayerX</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/04/16/some-progress-on-mplayerx/" title="Next Post: Some Progress on MPlayerX">Some Progress on MPlayerX &raquo;</a>
       
     </p>
   </footer>

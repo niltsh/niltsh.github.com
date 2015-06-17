@@ -160,229 +160,270 @@
 
 <table>
 <tr>
-<th>Name</th>
+    <th>Name</th>
     <th>type</th>
     <th>default value</th>
     <th>comment</th>
     <th>available from</th>
 </tr>
 <tr>
-<td> SpeedStepIncre </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> when changing the speed in the accessary control(the TextField), the increment value when press ↑↓ </td>
-        <td> unknown </td>
-    </tr>
+    <td> SpeedStepIncre </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> when changing the speed in the accessary control(the TextField), the increment value when press ↑↓ </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubDelayStepTime </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, the time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubDelayStepTime </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, the time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> AudioDelayStepTime </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, the time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> AudioDelayStepTime </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, the time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubScaleStepValue </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> similar with SpeedStepTime, it is rational to set this value within 0-1 </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubScaleStepValue </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> similar with SpeedStepTime, it is rational to set this value within 0-1 </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeL </td>
-        <td> float </td>
-        <td> -10 </td>
-        <td> when use ← to backward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeL </td>
+    <td> float </td>
+    <td> -10 </td>
+    <td> when use ← to backward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeR </td>
-        <td> float </td>
-        <td> 10 </td>
-        <td> when use → to forward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeR </td>
+    <td> float </td>
+    <td> 10 </td>
+    <td> when use → to forward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeU </td>
-        <td> float </td>
-        <td> 60 </td>
-        <td> when use ↑ to forward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeU </td>
+    <td> float </td>
+    <td> 60 </td>
+    <td> when use ↑ to forward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SeekStepTimeB </td>
-        <td> float </td>
-        <td> -60 </td>
-        <td> when use ↓ to backward, the jump time in seconds </td>
-        <td> unknown </td>
-    </tr>
+    <td> SeekStepTimeB </td>
+    <td> float </td>
+    <td> -60 </td>
+    <td> when use ↓ to backward, the jump time in seconds </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> VolumeStep </td>
-        <td> float </td>
-        <td> 10 </td>
-        <td> when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100) </td>
-        <td> unknown </td>
-    </tr>
+    <td> VolumeStep </td>
+    <td> float </td>
+    <td> 10 </td>
+    <td> when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100) </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SnapshotSavePath </td>
-        <td> string </td>
-        <td> <em>(internal value)</em> </td>
-        <td> if you don’t want to save the snapshot pics into your ~/Pictures, the <strong>Full Path</strong> of the folder where you want to save it </td>
-        <td> unknown </td>
-    </tr>
+    <td> SnapshotSavePath </td>
+    <td> string </td>
+    <td> <em>(internal value)</em> </td>
+    <td> if you don’t want to save the snapshot pics into your ~/Pictures, the <strong>Full Path</strong> of the folder where you want to save it </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> HideTitlebar </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> always hide titlebar even the mouse is hovering on the window </td>
-        <td> unknown </td>
-    </tr>
+    <td> HideTitlebar </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> always hide titlebar even the mouse is hovering on the window </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> LogMode </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> output logs to console </td>
-        <td> unknown </td>
-    </tr>
+    <td> LogMode </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> output logs to console </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> Prefer64bitMPlayer </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU </td>
-        <td> unknown </td>
-    </tr>
+    <td> Prefer64bitMPlayer </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> CloseOnStopped </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> When playback finished, whether to close the player window </td>
-        <td> unknown </td>
-    </tr>
+    <td> CloseOnStopped </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> When playback finished, whether to close the player window </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SubBorderWidth </td>
-        <td> integer </td>
-        <td> 2 </td>
-        <td> border width of the subtitle </td>
-        <td> unknown </td>
-    </tr>
+    <td> SubBorderWidth </td>
+    <td> integer </td>
+    <td> 2 </td>
+    <td> border width of the subtitle </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> CloseWndOnEsc </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> close window when pressing escape </td>
-        <td> unknown </td>
-    </tr>
+    <td> CloseWndOnEsc </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> close window when pressing escape </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> PlayWhenEnterFullScrn </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> auto resume when entering full screen if paused </td>
-        <td> unknown </td>
-    </tr>
+    <td> PlayWhenEnterFullScrn </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> auto resume when entering full screen if paused </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> SupportAppleRemote </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Support Apple Remote (Remote Buddy users may want to disable this) </td>
-        <td> unknown </td>
-    </tr>
+    <td> SupportAppleRemote </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Support Apple Remote (Remote Buddy users may want to disable this) </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> AssSubMarginV </td>
-        <td> integer </td>
-        <td> 12 </td>
-        <td> the position of Subtitle from bottom, in pixels </td>
-        <td> unknown </td>
-    </tr>
+    <td> AssSubMarginV </td>
+    <td> integer </td>
+    <td> 12 </td>
+    <td> the position of Subtitle from bottom, in pixels </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> ResizeControlBar </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> let the control bar autoresizing with window, or keep it unchanged </td>
-        <td> unknown </td>
-    </tr>
+    <td> ResizeControlBar </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> let the control bar autoresizing with window, or keep it unchanged </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> InitialFrameSizeRatio </td>
-        <td> float </td>
-        <td> 1.0 </td>
-        <td> the initial frame size ratio when opening a video </td>
-        <td> unknown </td>
-    </tr>
+    <td> InitialFrameSizeRatio </td>
+    <td> float </td>
+    <td> 1.0 </td>
+    <td> the initial frame size ratio when opening a video </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> DisableLastStopBookmark </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> disable the last stopped time completely </td>
-        <td> unknown </td>
-    </tr>
+    <td> DisableLastStopBookmark </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> disable the last stopped time completely </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> ResizeStep </td>
-        <td> float </td>
-        <td> 0.1 </td>
-        <td> the ratio when stepping up/down window size </td>
-        <td> unknown </td>
-    </tr>
+    <td> ResizeStep </td>
+    <td> float </td>
+    <td> 0.1 </td>
+    <td> the ratio when stepping up/down window size </td>
+    <td> unknown </td>
+</tr>
 <tr>
-<td> OldFullScreenMethod </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> the old style of full screen animation(only for Lion) </td>
-        <td> 1.0.9 </td>
-    </tr>
+    <td> OldFullScreenMethod </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> the old style of full screen animation(only for Lion) </td>
+    <td> 1.0.9 </td>
+</tr>
 <tr>
-<td> ClickTogPlayPause </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> single click to toggle play/pause </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> ClickTogPlayPause </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> single click to toggle play/pause </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> ARMenuKeyTogTimeDisp </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> AppleRemote menu key to toggle the elapse/remaining time </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> ARMenuKeyTogTimeDisp </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> AppleRemote menu key to toggle the elapse/remaining time </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> FFPThreshRatio </td>
-        <td> float </td>
-        <td> 1.8 </td>
-        <td> the threshold to judge pinch is happening with 4 fingers </td>
-        <td> 1.0.11 </td>
-    </tr>
+    <td> FFPThreshRatio </td>
+    <td> float </td>
+    <td> 1.8 </td>
+    <td> the threshold to judge pinch is happening with 4 fingers </td>
+    <td> 1.0.11 </td>
+</tr>
 <tr>
-<td> PauseShowTime </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> Show current time when paused </td>
-        <td> 1.0.14 </td>
-    </tr>
+    <td> PauseShowTime </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Show current time when paused </td>
+    <td> 1.0.14 </td>
+</tr>
 <tr>
-<td> ControlUIDetectMouseExit </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Hide control bar immediately when it exit from player window </td>
-        <td> 1.0.14 </td>
-    </tr>
+    <td> ControlUIDetectMouseExit </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Hide control bar immediately when it exit from player window </td>
+    <td> 1.0.14 </td>
+</tr>
 <tr>
-<td> EnableHWAccel2 </td>
-        <td> boolean </td>
-        <td> YES </td>
-        <td> Enable Hardware Accelerated Decoding </td>
-        <td> 1.0.17 </td>
-    </tr>
+    <td> EnableHWAccel2 </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Enable Hardware Accelerated Decoding </td>
+    <td> 1.0.17 </td>
+</tr>
 <tr>
-<td> AutoPauseWhenMiniaturized </td>
-        <td> boolean </td>
-        <td> NO </td>
-        <td> Pause automatically when minimized </td>
-        <td> 1.0.22 </td>
-    </tr>
+    <td> AutoPauseWhenMiniaturized </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Pause automatically when minimized </td>
+    <td> 1.0.22 </td>
+</tr>
+<tr>
+    <td> CorePartialUpdate </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Enable MPlayerX to update the player core only. </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldUITitlebar </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Bring back the old style of Titlebar in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldUIControl </td>
+    <td> boolean </td>
+    <td> NO </td>
+    <td> Bring back the old style of control Scrubber in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+<tr>
+    <td> YosemiteOldZoomButton </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Use the old style zoom button in 10.10 </td>
+    <td> 1.1.0 </td>
+</tr>
+
+
+<tr>
+    <td> LessDisturbWhenNonKey </td>
+    <td> boolean </td>
+    <td> YES </td>
+    <td> Do not show up the control scrubber even cursor hovers on the window, if player window is not activated </td>
+    <td> 1.1.0 </td>
+</tr>
+
 </table>
 </div>
 
@@ -472,6 +513,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/13/1-dot-1-0-is-out/">1.1.0 is out.</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/04/16/some-progress-on-mplayerx/">Some Progress on MPlayerX</a>
       </li>
     
@@ -485,10 +530,6 @@
     
       <li class="post">
         <a href="/blog/2013/12/26/its-getting-easier-to-open-online-videos/">It's getting easier to open videos online</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/10/use-version-number-with-xcode-and-git/">Use version number with Xcode and git</a>
       </li>
     
   </ul>

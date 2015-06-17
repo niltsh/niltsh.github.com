@@ -9,7 +9,7 @@
   <meta name="author" content="Zongyao Qu">
 
   
-  <meta name="description" content="Last year was a tremendous year for me, my first kid was given birth ( actually I&#8217;d rather say MPX is my first child :)), work made me busier &hellip;">
+  <meta name="description" content="Finally I managed to make some time to work this out. Except the change on the look, I&#8217;d like to introduce some interesting changes internally &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/13/1-dot-1-0-is-out/">1.1.0 Is Out.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-13T08:57:00+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Finally I managed to make some time to work this out.</p>
+
+<p>Except the change on the look, I&#8217;d like to introduce some interesting changes internally.</p>
+
+<h3>1. Partial update.</h3>
+
+<p>By far, The most issues I have received is that <strong><em>MPlayerX was unable to play some file.</em></strong> Most of the time, such issue is not related with MPlayerX itself, but ffmpeg or mplayer which works as the player core inside of MPlayerX.</p>
+
+<p>So I introduced this so called <strong><em>Partial Update</em></strong> into 1.1.0, which enable me to update the ffmpeg/mplayer part without updatig the whole app. Hopfully It could help me to update the player core to resolve your playback issues more quickly.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/06/13/1-dot-1-0-is-out/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -506,58 +555,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/31/about-donation-to-mplayerx/">About Donation to MPlayerX</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-31T19:49:00+09:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently, many users emailed me about their failure of donation to MPlayerX.</p>
-
-<p>I have conneted to the customer support of Paypal and their answer is</p>
-
-<blockquote><p>In accordance with applicable laws and regulations, Japanese account user can&#8217;t use their account to send donation to any accounts, if you want to use your Japanese account to receive the donation, your account and your group certification will be checked.</p>
-
-<p>Please click the <a href="http://www.nta.go.jp/taxanswer/shotoku/1150.htm">link</a> for solution.</p></blockquote>
-
-<p>Although I did successfully received the donation for almost 1 year, this year it got banned.</p>
-
-<p>I have made a alternative solution, a <strong>BUY button</strong>, which you could see in the <a href="http://mplayerx.org">homepage</a> now. But I&#8217;m not sure it is working, since I didn&#8217;t test it.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/01/31/about-donation-to-mplayerx/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -568,6 +568,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/06/13/1-dot-1-0-is-out/">1.1.0 is out.</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/04/16/some-progress-on-mplayerx/">Some Progress on MPlayerX</a>
@@ -583,10 +587,6 @@
     
       <li class="post">
         <a href="/blog/2013/12/26/its-getting-easier-to-open-online-videos/">It&#8217;s getting easier to open videos online</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/10/use-version-number-with-xcode-and-git/">Use version number with Xcode and git</a>
       </li>
     
   </ul>
