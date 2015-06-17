@@ -1,0 +1,47 @@
+---
+layout: post
+title: "1.1.0 is out."
+date: 2015-06-13 08:57
+comments: false
+categories: MPlayerX youtube partial update
+---
+
+Finally I managed to make some time to work this out.
+
+Except the change on the look, I'd like to introduce some interesting changes internally.
+
+### 1. Partial update.
+
+By far, The most issues I have received is that ___MPlayerX was unable to play some file.___ Most of the time, such issue is not related with MPlayerX itself, but ffmpeg or mplayer which works as the player core inside of MPlayerX.
+
+So I introduced this so called ___Partial Update___ into 1.1.0, which enable me to update the ffmpeg/mplayer part without updatig the whole app. Hopfully It could help me to update the player core to resolve your playback issues more quickly.
+
+<!-- more -->
+
+It is still a hidden settings, for the one who only wants to know how to enable it, here you go
+
+        cd ~/Library/Preferences
+        defaults write org.niltsh.MPlayerX CorePartialUpdate 1
+
+For the one who wants to know how it works, please give me 5 minutes to explain the mechanism.
+
+MPlayerX now wraps the core part as a bundle. Each time it starts, it will check ~/Library/Application Support/MPlayerX/bundles, if there has the latest bundle, MPlayerX will just use it, Otherwize, MPlayerX will overwirte with the default bundle inside of the App first.
+
+![bundles](/images/partial-update/partialupdate-bundles.png)
+
+Afer that, MPlayerX will check a separate channel if there is any update for these bundles, if there is a match, it will download and replace the bundles at next start-up.
+
+And you will receive a notification as below,
+
+![notification](/images/partial-update/partialupdate-notif.png)
+
+### 2. HTTPS support
+
+About a yeaer ago, Youtube started to transfer all their video links into https, which broke MPlayerX's online playback totally. Now MPlayerX add the support for https, and please enjoy the non-ads video again.
+
+There are still other trivial optimizations to find out, please enjoy the new version of MPlayerX.
+
+Thank you.
+
+BRs,
+Zongyao Qu
