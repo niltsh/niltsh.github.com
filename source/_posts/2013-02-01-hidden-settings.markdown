@@ -317,6 +317,14 @@ defaults write org.niltsh.MPlayerX Name -type Value
 	<td> 1.1.0 </td>
 </tr>
 
+<tr>
+	<td> AsyncRenderMode </td>
+	<td> Integer </td>
+	<td> 0 </td>
+	<td> 0: Auto mode, 1:ON enforce. From EI Capitan, MPX will start to use asynchronized render mode. For older OS version, you could set this entry to 1 to use the async mode too, in the price of trivial increment of power consumption. Please note, I didn't test this mode in other OS, only EI Capitan.</td>
+	<td> 1.1.1 </td>
+</tr>
+
 </table>
 </div>
 
